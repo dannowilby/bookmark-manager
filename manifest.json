@@ -1,0 +1,13 @@
+
+{
+	"name": "Bookmarks Manager",
+	"description": "Manage your bookmarks intuitively and effectively.",
+	"version": "1.0",
+	"manifest_version": 3,
+	"permissions": [
+		"bookmarks"
+	],
+	"chrome_url_overrides": {
+		"newtab": "dist/index.html"
+	}
+}
