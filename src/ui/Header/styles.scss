@@ -1,4 +1,23 @@
 
+@use "../global" as global;
+
 .container {
+
+	h1 {
+		display: inline-block;
+
+		font-family: global.$main-font;
+		font-weight: 400;
+		color: global.$primary-color;
+	}
+
+	h2 {
+		display: inline-block;
+		float: right;
+
+		font-family: global.$main-font;
+		font-weight: 400;
+		color: global.$primary-color;
+	}
 
 }

@@ -21,10 +21,40 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "._245CplbeA8vIAgeA4FueoE {\n  width: 40vw;\n}", "",{"version":3,"sources":["webpack://./src/styles.scss"],"names":[],"mappings":"AAKA;EAEC,WAAA;AALD","sourcesContent":["\n.container {\n\n}\n\n.nav {\n\n\twidth: 40vw;\n\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "._1epaoy0NuRU1MsRsgJs8iS {\n  padding: 1rem;\n}\n\n._245CplbeA8vIAgeA4FueoE {\n  width: 40vw;\n}", "",{"version":3,"sources":["webpack://./src/styles.scss"],"names":[],"mappings":"AACA;EAEC,aAAA;AADD;;AAKA;EAEC,WAAA;AAHD","sourcesContent":["\n.container {\n\n\tpadding: 1rem;\n\n}\n\n.nav {\n\n\twidth: 40vw;\n\n}\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
+	"container": "_1epaoy0NuRU1MsRsgJs8iS",
 	"nav": "_245CplbeA8vIAgeA4FueoE"
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/ui/Header/styles.scss":
+/*!********************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/ui/Header/styles.scss ***!
+  \********************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/cssWithMappingToString.js */ "./node_modules/css-loader/dist/runtime/cssWithMappingToString.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".GLdpf6X6SlcmHe8mCya2M h1 {\n  display: inline-block;\n  font-family: \"Roboto\", sans-serif;\n  font-weight: 400;\n  color: #333;\n}\n.GLdpf6X6SlcmHe8mCya2M h2 {\n  display: inline-block;\n  float: right;\n  font-family: \"Roboto\", sans-serif;\n  font-weight: 400;\n  color: #333;\n}", "",{"version":3,"sources":["webpack://./src/ui/Header/styles.scss","webpack://./src/ui/_global.scss"],"names":[],"mappings":"AAKC;EACC,qBAAA;EAEA,iCCFU;EDGV,gBAAA;EACA,WCTc;ADIhB;AAQC;EACC,qBAAA;EACA,YAAA;EAEA,iCCXU;EDYV,gBAAA;EACA,WClBc;ADWhB","sourcesContent":["\n@use \"../global\" as global;\n\n.container {\n\n\th1 {\n\t\tdisplay: inline-block;\n\n\t\tfont-family: global.$main-font;\n\t\tfont-weight: 400;\n\t\tcolor: global.$primary-color;\n\t}\n\n\th2 {\n\t\tdisplay: inline-block;\n\t\tfloat: right;\n\n\t\tfont-family: global.$main-font;\n\t\tfont-weight: 400;\n\t\tcolor: global.$primary-color;\n\t}\n\n}\n","\n$primary-color: #333 ;\n$secondary-color: #555;\n$tertiary-color: #DDD;\n$quaternary-color: #F2F2F2;\n\n$main-font: 'Roboto', sans-serif;\n"],"sourceRoot":""}]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	"container": "GLdpf6X6SlcmHe8mCya2M"
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -50,10 +80,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "._2J53oSLR6Ypa9mGNvgrvQz {\n  display: flex;\n  justify-content: space-between;\n}\n._2J53oSLR6Ypa9mGNvgrvQz span {\n  display: flex;\n  gap: 1rem;\n  text-overflow: ellipsis;\n}\n._2J53oSLR6Ypa9mGNvgrvQz:hover {\n  background-color: #ddd;\n}", "",{"version":3,"sources":["webpack://./src/ui/SideNav/styles.scss"],"names":[],"mappings":"AACA;EAEC,aAAA;EACA,8BAAA;AADD;AAGC;EACC,aAAA;EACA,SAAA;EAEA,uBAAA;AAFF;AAKC;EACC,sBAAA;AAHF","sourcesContent":["\n.file {\n\n\tdisplay: flex;\n\tjustify-content: space-between;\n\n\tspan {\n\t\tdisplay: flex;\n\t\tgap: 1rem;\n\n\t\ttext-overflow: ellipsis;\n\t}\n\n\t&:hover {\n\t\tbackground-color: #ddd;\n\t}\n\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "._2J53oSLR6Ypa9mGNvgrvQz {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0.25rem 0 0.25rem 0;\n  cursor: pointer;\n  font-family: \"Roboto\", sans-serif;\n  color: #333;\n  border-bottom: 1px solid #DDD;\n}\n._2J53oSLR6Ypa9mGNvgrvQz span {\n  display: flex;\n  gap: 0.5rem;\n  align-items: center;\n  padding-left: 0.25rem;\n  font-size: 0.8rem;\n  color: #333;\n}\n._2J53oSLR6Ypa9mGNvgrvQz:hover {\n  background-color: #F2F2F2;\n}\n._2J53oSLR6Ypa9mGNvgrvQz:hover ._3d8vnJeQhTnlNzD7L2nM54 > * {\n  display: inline-block;\n}\n._2J53oSLR6Ypa9mGNvgrvQz ._3d8vnJeQhTnlNzD7L2nM54 {\n  height: 16px;\n  width: 6rem;\n  text-align: right;\n  padding-right: 0.25rem;\n}\n._2J53oSLR6Ypa9mGNvgrvQz ._3d8vnJeQhTnlNzD7L2nM54 > * {\n  display: none;\n}", "",{"version":3,"sources":["webpack://./src/ui/SideNav/styles.scss","webpack://./src/ui/_global.scss"],"names":[],"mappings":"AAGA;EAEC,aAAA;EACA,8BAAA;EACA,mBAAA;EAEA,4BAAA;EAEA,eAAA;EAEA,iCCPW;EDQX,WCbe;EDef,6BAAA;AAPD;AASC;EACC,aAAA;EACA,WAAA;EACA,mBAAA;EAEA,qBAAA;EAEA,iBAAA;EACA,WAAA;AATF;AAYC;EACC,yBC1BiB;ADgBnB;AAYE;EACC,qBAAA;AAVH;AAcC;EACC,YAAA;EACA,WAAA;EACA,iBAAA;EACA,sBAAA;AAZF;AAeC;EACC,aAAA;AAbF","sourcesContent":["\n@use '../global' as global;\n\n.file {\n\n\tdisplay: flex;\n\tjustify-content: space-between;\n\talign-items: center;\n\t\n\tpadding: .25rem 0 .25rem 0;\n\n\tcursor: pointer;\n\n\tfont-family: global.$main-font;\n\tcolor: global.$primary-color;\n\t\n\tborder-bottom: 1px solid global.$tertiary-color;\n\n\tspan {\n\t\tdisplay: flex;\n\t\tgap: .5rem;\n\t\talign-items: center;\n\n\t\tpadding-left: .25rem;\n\n\t\tfont-size: .8rem;\n\t\tcolor: #333;\n\t}\n\n\t&:hover {\n\t\tbackground-color: global.$quaternary-color;\n\n\t\t.icons > * {\n\t\t\tdisplay: inline-block;\n\t\t}\n\t}\n\n\t.icons {\n\t\theight: 16px;\n\t\twidth: 6rem;\n\t\ttext-align: right;\n\t\tpadding-right: .25rem;\n\t}\n\n\t.icons > * {\n\t\tdisplay: none;\n\t}\n\n}\n","\n$primary-color: #333 ;\n$secondary-color: #555;\n$tertiary-color: #DDD;\n$quaternary-color: #F2F2F2;\n\n$main-font: 'Roboto', sans-serif;\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
-	"file": "_2J53oSLR6Ypa9mGNvgrvQz"
+	"file": "_2J53oSLR6Ypa9mGNvgrvQz",
+	"icons": "_3d8vnJeQhTnlNzD7L2nM54"
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -30016,6 +30047,35 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./src/ui/Header/styles.scss":
+/*!***********************************!*\
+  !*** ./src/ui/Header/styles.scss ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_0_use_1_node_modules_sass_loader_dist_cjs_js_styles_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!../../../node_modules/sass-loader/dist/cjs.js!./styles.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/ui/Header/styles.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_0_use_1_node_modules_sass_loader_dist_cjs_js_styles_scss__WEBPACK_IMPORTED_MODULE_1__.default, options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_0_use_1_node_modules_sass_loader_dist_cjs_js_styles_scss__WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
+
+/***/ }),
+
 /***/ "./src/ui/SideNav/styles.scss":
 /*!************************************!*\
   !*** ./src/ui/SideNav/styles.scss ***!
@@ -30406,7 +30466,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var Header = function () { return (react_1.default.createElement("div", null,
+var styles_scss_1 = __importDefault(__webpack_require__(/*! ./styles.scss */ "./src/ui/Header/styles.scss"));
+var Header = function () { return (react_1.default.createElement("div", { className: styles_scss_1.default.container },
     react_1.default.createElement("h1", null, "Your bookmarks"),
     react_1.default.createElement("h2", null, "About"))); };
 exports.default = Header;
@@ -30500,14 +30561,16 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var Icons_1 = __webpack_require__(/*! ../Icons */ "./src/ui/Icons.tsx");
 var styles_scss_1 = __importDefault(__webpack_require__(/*! ./styles.scss */ "./src/ui/SideNav/styles.scss"));
+var indent_size = 2;
+var indent_unit = 'rem';
 ;
 ;
 var Item = function (_a) {
-    var title = _a.title, link = _a.link, onClick = _a.onClick, icon = _a.icon, depth = _a.depth;
-    return (react_1.default.createElement("div", { className: styles_scss_1.default.file, onClick: onClick },
+    var title = _a.title, onClick = _a.onClick, icon = _a.icon, depth = _a.depth;
+    return (react_1.default.createElement("div", { style: { marginLeft: "" + depth * indent_size + indent_unit }, className: styles_scss_1.default.file, onClick: onClick },
         react_1.default.createElement("span", null,
             icon,
-            react_1.default.createElement("a", { href: link }, title)),
+            react_1.default.createElement("span", null, title)),
         react_1.default.createElement("div", { className: styles_scss_1.default.icons },
             react_1.default.createElement(Icons_1.EditIcon, { size: 16 }),
             react_1.default.createElement(Icons_1.PinIcon, { size: 16, open: false }),
@@ -30518,6 +30581,7 @@ var Tree = function (_a) {
     var _b = react_1.useState(false), collapsed = _b[0], setCollapsed = _b[1];
     if (!bookmarks)
         return (react_1.default.createElement(react_1.default.Fragment, null));
+    // TODO: change the depth == 0 so that search queries won't be messed up, ie. find another way to identify folders
     var is_folder = bookmarks.children && bookmarks.children.length > 0 || depth == 0;
     var icon = is_folder ?
         (react_1.default.createElement(Icons_1.CollapsableCaretIcon, { open: collapsed, size: 16 })) :
@@ -30527,7 +30591,6 @@ var Tree = function (_a) {
         react_1.default.createElement(Item, { title: bookmarks.title, onClick: on_click, icon: icon, depth: depth }),
         !collapsed && bookmarks.children && bookmarks.children.length > 0 && bookmarks.children.map(function (child) { return (react_1.default.createElement(Tree, { bookmarks: child, depth: depth + 1 })); })));
 };
-// TODO: work out how props are being passed through the application
 // TODO: add a way to save state between new instances of the page
 exports.default = Tree;
 

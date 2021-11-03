@@ -5,10 +5,11 @@ import { BookmarkProps } from '../../util';
 
 import styles from './styles.scss';
 
+const indent_size = 2;
+const indent_unit = 'rem';
 
 interface ItemProps {
 	title: string;
-	link?: string;
 	onClick: () => void;
 	icon: any;
 	depth: number;
@@ -18,11 +19,11 @@ interface TreeProps extends BookmarkProps {
 	depth: number;
 };
 
-const Item = ({ title, link, onClick, icon, depth }: ItemProps) => (
-	<div className={styles.file} onClick={onClick}>
+const Item = ({ title, onClick, icon, depth }: ItemProps) => (
+	<div style={{ marginLeft: `${depth * indent_size}${indent_unit}` }} className={styles.file} onClick={onClick}>
 		<span>
 			{ icon }
-			<a href={link}>{title}</a>
+			<span>{title}</span>
 		</span>
 		<div className={styles.icons}>
 			<EditIcon size={16} />
