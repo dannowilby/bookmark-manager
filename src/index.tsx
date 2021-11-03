@@ -5,8 +5,6 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import Header from './ui/Header';
 
-import './global.scss';
-
 const Container = () => ( 
 	<div>
 		<div>

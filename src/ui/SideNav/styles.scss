@@ -1,0 +1,18 @@
+
+.file {
+
+	display: flex;
+	justify-content: space-between;
+
+	span {
+		display: flex;
+		gap: 1rem;
+
+		text-overflow: ellipsis;
+	}
+
+	&:hover {
+		background-color: #ddd;
+	}
+
+}

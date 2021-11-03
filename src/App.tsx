@@ -1,8 +1,8 @@
 
 import React, { useEffect, useState } from 'react';
 
-import SearchBar from './SearchBar/index';
-import SideBar from './SideBar/index';
+import SideNav from './ui/SideNav/index';
+import Header from './ui/Header/index';
 
 import styles from './styles.scss';
 
@@ -20,8 +20,8 @@ const App = () => {
 
 	return (
 		<div className={styles.container}>
-			<SearchBar />
-			<SideBar bookmarks={state} margin={0} />
+			<Header />
+			<SideNav bookmarks={state} styles={styles.nav} />
 			{ /* <Pinned bookmarks={state} /> */ }
 		</div>
 	);
