@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+
+import { Preferences } from '../../App';
+import { is_preference_collapsed, update_collapsed_preferences } from '../../util';
 
 import { EditIcon, TrashIcon, CollapsableCaretIcon, PinIcon } from '../Icons';
 import { BookmarkProps } from '../../util';
 
 import styles from './styles.scss';
+
+// TODO: change the depth == 0 so that search queries won't be messed up 
+// ie. find another way to identify folders
+// TODO: add a way to save state between new instances of the page
+// More specifically save which folders are collapsed and which nodes are pinned,
+// also the indent size and indent unit, maybe the color theme as well if the css isn't that hard
 
 const indent_size = 2;
 const indent_unit = 'rem';
@@ -19,8 +28,17 @@ interface TreeProps extends BookmarkProps {
 	depth: number;
 };
 
+/**
+ * The actual item that is rendered
+ * Renders both folders and files
+ */
 const Item = ({ title, onClick, icon, depth }: ItemProps) => (
-	<div style={{ marginLeft: `${depth * indent_size}${indent_unit}` }} className={styles.file} onClick={onClick}>
+	
+	<div 
+		style={{ marginLeft: `${depth * indent_size}${indent_unit}` }} 
+		className={styles.file} 
+		onClick={onClick}
+	>
 		<span>
 			{ icon }
 			<span>{title}</span>
@@ -33,19 +51,33 @@ const Item = ({ title, onClick, icon, depth }: ItemProps) => (
 	</div>
 );
 
+/**
+ * A recursive component to render all the bookmark node passed in and all its children
+ */
 const Tree = ({ bookmarks, depth }: TreeProps) => {
-
-	const [collapsed, setCollapsed] = useState(false);
 
 	if(!bookmarks)
 		return (<></>);
 
-	// TODO: change the depth == 0 so that search queries won't be messed up, ie. find another way to identify folders
+	const prefs = useContext(Preferences);
+	const [collapsed, setCollapsed] = useState(is_preference_collapsed(prefs, bookmarks.id));
+	
 	const is_folder = bookmarks.children && bookmarks.children.length > 0 || depth == 0;
+	
 	const icon = is_folder ? 
-		(<CollapsableCaretIcon open={collapsed} size={16} />) : 
-		(<img src={`https://www.google.com/s2/favicons?domain=${bookmarks.url}`} width="16" height="16" />);
-	const on_click = is_folder ? () => { setCollapsed(!collapsed) } : () => { window.location.href = bookmarks.url || ""; };
+		<CollapsableCaretIcon open={collapsed} size={16} /> : 
+		<img 
+		 	src={`https://www.google.com/s2/favicons?domain=${bookmarks.url}`} 
+			width="16" 
+			height="16" 
+		/>;
+	
+	const on_click = is_folder ? 
+		() => { 
+			setCollapsed(!collapsed); 
+			update_collapsed_preferences(prefs, bookmarks.id);
+		} : 
+		() => { window.location.href = bookmarks.url || ""; };
 	
 	return (
 		<div className={styles.folder}>
@@ -57,14 +89,14 @@ const Tree = ({ bookmarks, depth }: TreeProps) => {
 				depth={depth}
 			/>
 
-			{ !collapsed && bookmarks.children && bookmarks.children.length > 0  && bookmarks.children.map((child) => (
-				<Tree bookmarks={child} depth={depth + 1} />
-			)) }
+			{ !collapsed && bookmarks.children && bookmarks.children.length > 0 && 
+				bookmarks.children.map((child) => (
+					<Tree bookmarks={child} depth={depth + 1} />
+				)) 
+			}
 		</div>
 	);
 }
-
-// TODO: add a way to save state between new instances of the page
 
 export default Tree;
 

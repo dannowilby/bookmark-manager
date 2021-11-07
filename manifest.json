@@ -5,7 +5,7 @@
 	"version": "1.0",
 	"manifest_version": 3,
 	"permissions": [
-		"bookmarks"
+		"bookmarks", "storage"
 	],
 	"chrome_url_overrides": {
 		"newtab": "dist/index.html"
