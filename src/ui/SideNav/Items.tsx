@@ -1,7 +1,6 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 
-import { Preferences } from '../../App';
-import { is_preference_collapsed, update_collapsed_preferences } from '../../util';
+import { Preferences, is_preference_collapsed, update_collapsed_preferences } from '../../Preferences';
 
 import { EditIcon, TrashIcon, CollapsableCaretIcon, PinIcon } from '../Icons';
 import { BookmarkProps } from '../../util';
@@ -26,6 +25,13 @@ interface ItemProps {
 
 interface TreeProps extends BookmarkProps {
 	depth: number;
+};
+
+interface TreeState {
+
+	collapsed: boolean;
+	has_loaded: boolean;
+
 };
 
 /**
@@ -59,13 +65,21 @@ const Tree = ({ bookmarks, depth }: TreeProps) => {
 	if(!bookmarks)
 		return (<></>);
 
-	const prefs = useContext(Preferences);
-	const [collapsed, setCollapsed] = useState(is_preference_collapsed(prefs, bookmarks.id));
-	
+	const [state, setState] = useState<TreeState>({ collapsed: false, has_loaded: false });
+
+	useEffect(() => {
+		Preferences.then(data => {
+			setState({ collapsed: is_preference_collapsed(data, bookmarks.id), has_loaded: true });
+		})
+	}, []);
+
+	if(!state.has_loaded)
+		return (<></>);
+
 	const is_folder = bookmarks.children && bookmarks.children.length > 0 || depth == 0;
 	
 	const icon = is_folder ? 
-		<CollapsableCaretIcon open={collapsed} size={16} /> : 
+		<CollapsableCaretIcon open={state.collapsed} size={16} /> : 
 		<img 
 		 	src={`https://www.google.com/s2/favicons?domain=${bookmarks.url}`} 
 			width="16" 
@@ -74,8 +88,10 @@ const Tree = ({ bookmarks, depth }: TreeProps) => {
 	
 	const on_click = is_folder ? 
 		() => { 
-			setCollapsed(!collapsed); 
-			update_collapsed_preferences(prefs, bookmarks.id);
+			setState({ ...state, collapsed: !state.collapsed }); 
+			Preferences.then(data => {
+				update_collapsed_preferences(bookmarks.id);
+			});
 		} : 
 		() => { window.location.href = bookmarks.url || ""; };
 	
@@ -89,9 +105,9 @@ const Tree = ({ bookmarks, depth }: TreeProps) => {
 				depth={depth}
 			/>
 
-			{ !collapsed && bookmarks.children && bookmarks.children.length > 0 && 
+			{ !state.collapsed && bookmarks.children && bookmarks.children.length > 0 && 
 				bookmarks.children.map((child) => (
-					<Tree bookmarks={child} depth={depth + 1} />
+					<Tree key={child.id} bookmarks={child} depth={depth + 1} />
 				)) 
 			}
 		</div>

@@ -30413,25 +30413,100 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.Preferences = void 0;
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var util_1 = __webpack_require__(/*! ./util */ "./src/util.tsx");
 var index_1 = __importDefault(__webpack_require__(/*! ./ui/SideNav/index */ "./src/ui/SideNav/index.tsx"));
 var index_2 = __importDefault(__webpack_require__(/*! ./ui/Header/index */ "./src/ui/Header/index.tsx"));
 var styles_scss_1 = __importDefault(__webpack_require__(/*! ./styles.scss */ "./src/styles.scss"));
-var loaded_preferences = util_1.init_preferences();
-var Preferences = react_1.default.createContext(loaded_preferences);
-exports.Preferences = Preferences;
 var App = function () {
     var _a = react_1.useState(null), state = _a[0], setState = _a[1];
-    react_1.useEffect(function () { return chrome.bookmarks.getTree(function (results) { return setState(results[0]); }); }, []);
-    console.log(state);
+    react_1.useEffect(function () { return chrome.bookmarks.getTree(function (results) {
+        return setState(results[0]);
+    }); }, []);
     return (react_1.default.createElement("div", { className: styles_scss_1.default.container },
         react_1.default.createElement(index_2.default, null),
-        react_1.default.createElement(Preferences.Provider, { value: loaded_preferences },
-            react_1.default.createElement(index_1.default, { bookmarks: state, styles: styles_scss_1.default.nav }))));
+        react_1.default.createElement(index_1.default, { bookmarks: state, styles: styles_scss_1.default.nav })));
 };
 exports.default = App;
+
+
+/***/ }),
+
+/***/ "./src/Preferences.tsx":
+/*!*****************************!*\
+  !*** ./src/Preferences.tsx ***!
+  \*****************************/
+/***/ (function(__unused_webpack_module, exports) {
+
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Preferences = exports.update_collapsed_preferences = exports.is_preference_collapsed = exports.get_preferences = exports.set_preferences = exports.new_preferences = void 0;
+;
+;
+var new_preferences = function () { return ({
+    collapsed: new Set()
+}); };
+exports.new_preferences = new_preferences;
+var set_preferences = function (preferences) {
+    var converted = __assign(__assign({}, preferences), { collapsed: set_to_object(preferences.collapsed) });
+    chrome.storage.sync.set({ "preferences": converted });
+};
+exports.set_preferences = set_preferences;
+/**
+ * Returns the loaded state or generates a new state and returns it
+ */
+var get_preferences = function () { return new Promise(function (resolve, reject) { return chrome.storage.sync.get('preferences', function (data) {
+    var collapsed = object_to_set(data.preferences.collapsed);
+    resolve(__assign(__assign({}, data.preferences), { collapsed: collapsed }));
+}); }); };
+exports.get_preferences = get_preferences;
+/* COLLAPSABLE */
+var is_preference_collapsed = function (preferences, id) {
+    if (!preferences || !preferences.collapsed)
+        return false;
+    return preferences.collapsed.has(id);
+};
+exports.is_preference_collapsed = is_preference_collapsed;
+var update_collapsed_preferences = function (id) {
+    exports.Preferences.then(function (preferences) {
+        if (!preferences || !preferences.collapsed)
+            return false;
+        if (preferences.collapsed.has(id))
+            preferences.collapsed.delete(id);
+        else
+            preferences.collapsed.add(id);
+        exports.set_preferences(preferences);
+    });
+};
+exports.update_collapsed_preferences = update_collapsed_preferences;
+/* HELPER FUNCTIONS */
+var set_to_object = function (set) {
+    var t = {};
+    set.forEach(function (v) {
+        var _a;
+        t = __assign(__assign({}, t), (_a = {}, _a[v] = true, _a));
+    });
+    return t;
+};
+var object_to_set = function (o) {
+    var t = new Set();
+    Object.entries(o).forEach(function (_a) {
+        var k = _a[0], v = _a[1];
+        t.add(k);
+    });
+    return t;
+};
+exports.Preferences = exports.get_preferences();
 
 
 /***/ }),
@@ -30541,6 +30616,17 @@ exports.PinIcon = PinIcon;
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
@@ -30565,8 +30651,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var App_1 = __webpack_require__(/*! ../../App */ "./src/App.tsx");
-var util_1 = __webpack_require__(/*! ../../util */ "./src/util.tsx");
+var Preferences_1 = __webpack_require__(/*! ../../Preferences */ "./src/Preferences.tsx");
 var Icons_1 = __webpack_require__(/*! ../Icons */ "./src/ui/Icons.tsx");
 var styles_scss_1 = __importDefault(__webpack_require__(/*! ./styles.scss */ "./src/ui/SideNav/styles.scss"));
 // TODO: change the depth == 0 so that search queries won't be messed up 
@@ -30576,6 +30661,7 @@ var styles_scss_1 = __importDefault(__webpack_require__(/*! ./styles.scss */ "./
 // also the indent size and indent unit, maybe the color theme as well if the css isn't that hard
 var indent_size = 2;
 var indent_unit = 'rem';
+;
 ;
 ;
 /**
@@ -30600,22 +30686,30 @@ var Tree = function (_a) {
     var bookmarks = _a.bookmarks, depth = _a.depth;
     if (!bookmarks)
         return (react_1.default.createElement(react_1.default.Fragment, null));
-    var prefs = react_1.useContext(App_1.Preferences);
-    var _b = react_1.useState(util_1.is_preference_collapsed(prefs, bookmarks.id)), collapsed = _b[0], setCollapsed = _b[1];
+    var _b = react_1.useState({ collapsed: false, has_loaded: false }), state = _b[0], setState = _b[1];
+    react_1.useEffect(function () {
+        Preferences_1.Preferences.then(function (data) {
+            setState({ collapsed: Preferences_1.is_preference_collapsed(data, bookmarks.id), has_loaded: true });
+        });
+    }, []);
+    if (!state.has_loaded)
+        return (react_1.default.createElement(react_1.default.Fragment, null));
     var is_folder = bookmarks.children && bookmarks.children.length > 0 || depth == 0;
     var icon = is_folder ?
-        react_1.default.createElement(Icons_1.CollapsableCaretIcon, { open: collapsed, size: 16 }) :
+        react_1.default.createElement(Icons_1.CollapsableCaretIcon, { open: state.collapsed, size: 16 }) :
         react_1.default.createElement("img", { src: "https://www.google.com/s2/favicons?domain=" + bookmarks.url, width: "16", height: "16" });
     var on_click = is_folder ?
         function () {
-            setCollapsed(!collapsed);
-            util_1.update_collapsed_preferences(prefs, bookmarks.id);
+            setState(__assign(__assign({}, state), { collapsed: !state.collapsed }));
+            Preferences_1.Preferences.then(function (data) {
+                Preferences_1.update_collapsed_preferences(bookmarks.id);
+            });
         } :
         function () { window.location.href = bookmarks.url || ""; };
     return (react_1.default.createElement("div", { className: styles_scss_1.default.folder },
         react_1.default.createElement(Item, { title: bookmarks.title, onClick: on_click, icon: icon, depth: depth }),
-        !collapsed && bookmarks.children && bookmarks.children.length > 0 &&
-            bookmarks.children.map(function (child) { return (react_1.default.createElement(Tree, { bookmarks: child, depth: depth + 1 })); })));
+        !state.collapsed && bookmarks.children && bookmarks.children.length > 0 &&
+            bookmarks.children.map(function (child) { return (react_1.default.createElement(Tree, { key: child.id, bookmarks: child, depth: depth + 1 })); })));
 };
 exports.default = Tree;
 
@@ -30638,96 +30732,9 @@ var Items_1 = __importDefault(__webpack_require__(/*! ./Items */ "./src/ui/SideN
 ;
 var SideNav = function (_a) {
     var bookmarks = _a.bookmarks, styles = _a.styles;
-    return (react_1.default.createElement("div", { className: styles }, bookmarks && bookmarks.children && bookmarks.children.map(function (child) { return (react_1.default.createElement(Items_1.default, { bookmarks: child, depth: 0 })); })));
+    return (react_1.default.createElement("div", { className: styles }, bookmarks && bookmarks.children && bookmarks.children.map(function (child) { return (react_1.default.createElement(Items_1.default, { key: child.id, bookmarks: child, depth: 0 })); })));
 };
 exports.default = SideNav;
-
-
-/***/ }),
-
-/***/ "./src/util.tsx":
-/*!**********************!*\
-  !*** ./src/util.tsx ***!
-  \**********************/
-/***/ (function(__unused_webpack_module, exports) {
-
-
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.update_collapsed_preferences = exports.is_preference_collapsed = exports.get_preferences = exports.set_preferences = exports.init_preferences = exports.new_preferences = void 0;
-;
-;
-var new_preferences = function () { return ({
-    collapsed: new Set()
-}); };
-exports.new_preferences = new_preferences;
-/**
- * Used for loading the inital state in the App component
- */
-var init_preferences = function () {
-    var prefs = exports.get_preferences();
-    exports.set_preferences(prefs);
-    console.log(prefs);
-    return prefs;
-};
-exports.init_preferences = init_preferences;
-var set_preferences = function (preferences) { return (chrome.storage.sync.set({ test: "t" }) // Make this work
-); };
-exports.set_preferences = set_preferences;
-/**
- * Returns the loaded state or generates a new state and returns it
- */
-var get_preferences = function () {
-    var t = exports.new_preferences();
-    chrome.storage.sync.get('preferences', function (data) {
-        Object.assign(t, {}); // Make this work
-    });
-    return t;
-};
-exports.get_preferences = get_preferences;
-/* COLLAPSABLE */
-var is_preference_collapsed = function (preferences, id) {
-    if (!preferences || !preferences.collapsed)
-        return false;
-    return preferences.collapsed.has(id);
-};
-exports.is_preference_collapsed = is_preference_collapsed;
-var update_collapsed_preferences = function (preferences, id) {
-    if (!preferences || !preferences.collapsed)
-        return false;
-    if (preferences.collapsed.has(id))
-        preferences.collapsed.delete(id);
-    else
-        preferences.collapsed.add(id);
-    exports.set_preferences(preferences);
-};
-exports.update_collapsed_preferences = update_collapsed_preferences;
-/* HELPER FUNCTIONS */
-var set_to_object = function (set) {
-    var _a;
-    var t = {};
-    for (var v in set.values()) {
-        t = __assign(__assign({}, t), (_a = {}, _a[v] = true, _a));
-    }
-    return t;
-};
-var object_to_set = function (object) {
-    var t = new Set();
-    for (var k in Object.keys(object)) {
-        t.add(k);
-    }
-    return t;
-};
 
 
 /***/ })

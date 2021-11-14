@@ -11,7 +11,7 @@ interface SideNavProps extends BookmarkProps {
 
 const SideNav = ({ bookmarks, styles }: SideNavProps) => (
 	<div className={styles}>
-		{ bookmarks && bookmarks.children && bookmarks.children.map((child) => (<Tree bookmarks={child} depth={0} />))}
+		{ bookmarks && bookmarks.children && bookmarks.children.map((child) => (<Tree key={child.id} bookmarks={child} depth={0} />))}
 	</div>
 );
 
