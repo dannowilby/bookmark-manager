@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { Preferences, is_preference_collapsed, update_collapsed_preferences } from '../../Preferences';
+import { UserStoredData, is_collapsed, update_collapsed } from '../../Preferences';
 
 import { EditIcon, TrashIcon, CollapsableCaretIcon, PinIcon } from '../Icons';
 import { BookmarkProps } from '../../util';
@@ -19,6 +19,7 @@ const indent_unit = 'rem';
 interface ItemProps {
 	title: string;
 	onClick: () => void;
+	pinned: boolean;
 	icon: any;
 	depth: number;
 };
@@ -30,6 +31,7 @@ interface TreeProps extends BookmarkProps {
 interface TreeState {
 
 	collapsed: boolean;
+	pinned: boolean;
 	has_loaded: boolean;
 
 };
@@ -38,7 +40,7 @@ interface TreeState {
  * The actual item that is rendered
  * Renders both folders and files
  */
-const Item = ({ title, onClick, icon, depth }: ItemProps) => (
+const Item = ({ title, onClick, pinned, icon, depth }: ItemProps) => (
 	
 	<div 
 		style={{ marginLeft: `${depth * indent_size}${indent_unit}` }} 
@@ -51,7 +53,7 @@ const Item = ({ title, onClick, icon, depth }: ItemProps) => (
 		</span>
 		<div className={styles.icons}>
 			<EditIcon size={16} />
-			<PinIcon size={16} open={false} />
+			<PinIcon size={16} open={pinned} />
 			<TrashIcon size={16} />
 		</div>
 	</div>
@@ -65,11 +67,19 @@ const Tree = ({ bookmarks, depth }: TreeProps) => {
 	if(!bookmarks)
 		return (<></>);
 
-	const [state, setState] = useState<TreeState>({ collapsed: false, has_loaded: false });
+	const [state, setState] = useState<TreeState>({ 
+		collapsed: false,
+		pinned: false,
+		has_loaded: false 
+	});
 
 	useEffect(() => {
-		Preferences.then(data => {
-			setState({ collapsed: is_preference_collapsed(data, bookmarks.id), has_loaded: true });
+		UserStoredData.then(data => {
+			setState({ 
+				collapsed: is_collapsed(data, bookmarks.id), 
+				pinned: false, // is_pinned(data, bookmarks.id), 
+				has_loaded: true 
+			});
 		})
 	}, []);
 
@@ -89,9 +99,7 @@ const Tree = ({ bookmarks, depth }: TreeProps) => {
 	const on_click = is_folder ? 
 		() => { 
 			setState({ ...state, collapsed: !state.collapsed }); 
-			Preferences.then(data => {
-				update_collapsed_preferences(bookmarks.id);
-			});
+			update_collapsed(bookmarks.id);
 		} : 
 		() => { window.location.href = bookmarks.url || ""; };
 	
@@ -100,7 +108,8 @@ const Tree = ({ bookmarks, depth }: TreeProps) => {
 			
 			<Item 
 				title={bookmarks.title} 
-				onClick={on_click} 
+				onClick={on_click}
+				pinned={state.pinned}
 				icon={icon}
 				depth={depth}
 			/>

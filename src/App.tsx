@@ -1,8 +1,6 @@
 
 import React, { useEffect, useState, useContext } from 'react';
 
-import { Preferences } from './Preferences';
-
 import SideNav from './ui/SideNav/index';
 import Header from './ui/Header/index';
 

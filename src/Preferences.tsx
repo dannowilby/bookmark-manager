@@ -1,38 +1,80 @@
 
 import React from 'react';
 
-
-export interface BookmarkProps {
-	bookmarks: chrome.bookmarks.BookmarkTreeNode | null;
-};
-
 /* USER PREFERENCES */
 
-export interface UserPreferences {
+export interface UserStoredData {
 	collapsed: Set<string>;
+	pinned: Set<string>;
 };
 
-export const new_preferences = (): UserPreferences => ({
-	collapsed: new Set<string>()
+export const new_user_stored_data = (): UserStoredData => ({
+	collapsed: new Set<string>(),
+	pinned: new Set<string>(),
 });
 
-export const set_preferences = (preferences: UserPreferences) => {
-	const converted = { ...preferences, collapsed: set_to_object(preferences.collapsed) };
-	chrome.storage.sync.set({ "preferences": converted }) 
+export const set_user_stored_data = (preferences: UserStoredData) => {
+	const converted = { 
+		...preferences, 
+		collapsed: set_to_object(preferences.collapsed),
+		pinned: set_to_object(preferences.pinned),
+	};
+
+	chrome.storage.sync.set({ 'stored': converted }) 
 };
 
 /**
  * Returns the loaded state or generates a new state and returns it
  */
 
-export const get_preferences = (): Promise<UserPreferences> => new Promise((resolve, reject) => chrome.storage.sync.get('preferences', (data) => {
-		const collapsed = object_to_set(data.preferences.collapsed);
-		resolve({ ...data.preferences, collapsed });
-}));
+const user_stored_data_exists = (data: object): boolean => (data.hasOwnProperty('stored'));
+
+export const get_user_stored_data = (): Promise<UserStoredData> => 
+	new Promise((resolve, reject) => chrome.storage.sync.get('stored', (data) => {
+
+		if(!user_stored_data_exists(data)) {
+			const t = new_user_stored_data();
+			set_user_stored_data(t);
+			resolve(t);
+		}
+
+		const collapsed = object_to_set(data.stored.collapsed);
+		const pinned = object_to_set(data.stored.pinned);
+		resolve({ ...data.stored, collapsed, pinned });
+	})
+);
+
+/* PINNED */
+
+export const is_pinned = (preferences: UserStoredData | null, id: string): boolean => {
+
+	if(!preferences || !preferences.pinned)
+		return false;
+	
+	return preferences.pinned.has(id);
+
+};
+
+export const update_pinned = (id: string) => {
+
+	UserStoredData.then(preferences => {
+
+		if(!preferences || !preferences.pinned)
+			return false;
+	
+		if (preferences.pinned.has(id))
+			preferences.pinned.delete(id);
+		else
+			preferences.pinned.add(id);
+
+		set_user_stored_data(preferences);
+	});
+
+};
 
 /* COLLAPSABLE */
 
-export const is_preference_collapsed = (preferences: UserPreferences | null, id: string): boolean => {
+export const is_collapsed = (preferences: UserStoredData | null, id: string): boolean => {
 
 	if(!preferences || !preferences.collapsed)
 		return false;
@@ -41,9 +83,9 @@ export const is_preference_collapsed = (preferences: UserPreferences | null, id:
 
 };
 
-export const update_collapsed_preferences = (id: string) => {
+export const update_collapsed = (id: string) => {
 
-	Preferences.then(preferences => {
+	UserStoredData.then(preferences => {
 
 		if(!preferences || !preferences.collapsed)
 			return false;
@@ -53,7 +95,7 @@ export const update_collapsed_preferences = (id: string) => {
 		else
 			preferences.collapsed.add(id);
 
-		set_preferences(preferences);
+		set_user_stored_data(preferences);
 	});
 
 };
@@ -82,4 +124,6 @@ const object_to_set = (o: object): Set<string> => {
 	return t;
 };
 
-export const Preferences = get_preferences(); 
+export const UserStoredData = get_user_stored_data(); 
+
+

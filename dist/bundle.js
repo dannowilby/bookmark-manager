@@ -30450,45 +30450,73 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.Preferences = exports.update_collapsed_preferences = exports.is_preference_collapsed = exports.get_preferences = exports.set_preferences = exports.new_preferences = void 0;
+exports.UserStoredData = exports.update_collapsed = exports.is_collapsed = exports.update_pinned = exports.is_pinned = exports.get_user_stored_data = exports.set_user_stored_data = exports.new_user_stored_data = void 0;
 ;
-;
-var new_preferences = function () { return ({
-    collapsed: new Set()
+var new_user_stored_data = function () { return ({
+    collapsed: new Set(),
+    pinned: new Set(),
 }); };
-exports.new_preferences = new_preferences;
-var set_preferences = function (preferences) {
-    var converted = __assign(__assign({}, preferences), { collapsed: set_to_object(preferences.collapsed) });
-    chrome.storage.sync.set({ "preferences": converted });
+exports.new_user_stored_data = new_user_stored_data;
+var set_user_stored_data = function (preferences) {
+    var converted = __assign(__assign({}, preferences), { collapsed: set_to_object(preferences.collapsed), pinned: set_to_object(preferences.pinned) });
+    chrome.storage.sync.set({ 'stored': converted });
 };
-exports.set_preferences = set_preferences;
+exports.set_user_stored_data = set_user_stored_data;
 /**
  * Returns the loaded state or generates a new state and returns it
  */
-var get_preferences = function () { return new Promise(function (resolve, reject) { return chrome.storage.sync.get('preferences', function (data) {
-    var collapsed = object_to_set(data.preferences.collapsed);
-    resolve(__assign(__assign({}, data.preferences), { collapsed: collapsed }));
-}); }); };
-exports.get_preferences = get_preferences;
+var user_stored_data_exists = function (data) { return (data.hasOwnProperty('stored')); };
+var get_user_stored_data = function () {
+    return new Promise(function (resolve, reject) { return chrome.storage.sync.get('stored', function (data) {
+        if (!user_stored_data_exists(data)) {
+            var t = exports.new_user_stored_data();
+            exports.set_user_stored_data(t);
+            resolve(t);
+        }
+        var collapsed = object_to_set(data.stored.collapsed);
+        var pinned = object_to_set(data.stored.pinned);
+        resolve(__assign(__assign({}, data.stored), { collapsed: collapsed, pinned: pinned }));
+    }); });
+};
+exports.get_user_stored_data = get_user_stored_data;
+/* PINNED */
+var is_pinned = function (preferences, id) {
+    if (!preferences || !preferences.pinned)
+        return false;
+    return preferences.pinned.has(id);
+};
+exports.is_pinned = is_pinned;
+var update_pinned = function (id) {
+    exports.UserStoredData.then(function (preferences) {
+        if (!preferences || !preferences.pinned)
+            return false;
+        if (preferences.pinned.has(id))
+            preferences.pinned.delete(id);
+        else
+            preferences.pinned.add(id);
+        exports.set_user_stored_data(preferences);
+    });
+};
+exports.update_pinned = update_pinned;
 /* COLLAPSABLE */
-var is_preference_collapsed = function (preferences, id) {
+var is_collapsed = function (preferences, id) {
     if (!preferences || !preferences.collapsed)
         return false;
     return preferences.collapsed.has(id);
 };
-exports.is_preference_collapsed = is_preference_collapsed;
-var update_collapsed_preferences = function (id) {
-    exports.Preferences.then(function (preferences) {
+exports.is_collapsed = is_collapsed;
+var update_collapsed = function (id) {
+    exports.UserStoredData.then(function (preferences) {
         if (!preferences || !preferences.collapsed)
             return false;
         if (preferences.collapsed.has(id))
             preferences.collapsed.delete(id);
         else
             preferences.collapsed.add(id);
-        exports.set_preferences(preferences);
+        exports.set_user_stored_data(preferences);
     });
 };
-exports.update_collapsed_preferences = update_collapsed_preferences;
+exports.update_collapsed = update_collapsed;
 /* HELPER FUNCTIONS */
 var set_to_object = function (set) {
     var t = {};
@@ -30506,7 +30534,7 @@ var object_to_set = function (o) {
     });
     return t;
 };
-exports.Preferences = exports.get_preferences();
+exports.UserStoredData = exports.get_user_stored_data();
 
 
 /***/ }),
@@ -30669,14 +30697,14 @@ var indent_unit = 'rem';
  * Renders both folders and files
  */
 var Item = function (_a) {
-    var title = _a.title, onClick = _a.onClick, icon = _a.icon, depth = _a.depth;
+    var title = _a.title, onClick = _a.onClick, pinned = _a.pinned, icon = _a.icon, depth = _a.depth;
     return (react_1.default.createElement("div", { style: { marginLeft: "" + depth * indent_size + indent_unit }, className: styles_scss_1.default.file, onClick: onClick },
         react_1.default.createElement("span", null,
             icon,
             react_1.default.createElement("span", null, title)),
         react_1.default.createElement("div", { className: styles_scss_1.default.icons },
             react_1.default.createElement(Icons_1.EditIcon, { size: 16 }),
-            react_1.default.createElement(Icons_1.PinIcon, { size: 16, open: false }),
+            react_1.default.createElement(Icons_1.PinIcon, { size: 16, open: pinned }),
             react_1.default.createElement(Icons_1.TrashIcon, { size: 16 }))));
 };
 /**
@@ -30686,10 +30714,18 @@ var Tree = function (_a) {
     var bookmarks = _a.bookmarks, depth = _a.depth;
     if (!bookmarks)
         return (react_1.default.createElement(react_1.default.Fragment, null));
-    var _b = react_1.useState({ collapsed: false, has_loaded: false }), state = _b[0], setState = _b[1];
+    var _b = react_1.useState({
+        collapsed: false,
+        pinned: false,
+        has_loaded: false
+    }), state = _b[0], setState = _b[1];
     react_1.useEffect(function () {
-        Preferences_1.Preferences.then(function (data) {
-            setState({ collapsed: Preferences_1.is_preference_collapsed(data, bookmarks.id), has_loaded: true });
+        Preferences_1.UserStoredData.then(function (data) {
+            setState({
+                collapsed: Preferences_1.is_collapsed(data, bookmarks.id),
+                pinned: false,
+                has_loaded: true
+            });
         });
     }, []);
     if (!state.has_loaded)
@@ -30701,13 +30737,11 @@ var Tree = function (_a) {
     var on_click = is_folder ?
         function () {
             setState(__assign(__assign({}, state), { collapsed: !state.collapsed }));
-            Preferences_1.Preferences.then(function (data) {
-                Preferences_1.update_collapsed_preferences(bookmarks.id);
-            });
+            Preferences_1.update_collapsed(bookmarks.id);
         } :
         function () { window.location.href = bookmarks.url || ""; };
     return (react_1.default.createElement("div", { className: styles_scss_1.default.folder },
-        react_1.default.createElement(Item, { title: bookmarks.title, onClick: on_click, icon: icon, depth: depth }),
+        react_1.default.createElement(Item, { title: bookmarks.title, onClick: on_click, pinned: state.pinned, icon: icon, depth: depth }),
         !state.collapsed && bookmarks.children && bookmarks.children.length > 0 &&
             bookmarks.children.map(function (child) { return (react_1.default.createElement(Tree, { key: child.id, bookmarks: child, depth: depth + 1 })); })));
 };
