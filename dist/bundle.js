@@ -80,11 +80,12 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "._2J53oSLR6Ypa9mGNvgrvQz {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0.25rem 0 0.25rem 0;\n  cursor: pointer;\n  font-family: \"Roboto\", sans-serif;\n  color: #333;\n  border-bottom: 1px solid #DDD;\n}\n._2J53oSLR6Ypa9mGNvgrvQz span {\n  display: flex;\n  gap: 0.5rem;\n  align-items: center;\n  padding-left: 0.25rem;\n  font-size: 0.8rem;\n  color: #333;\n}\n._2J53oSLR6Ypa9mGNvgrvQz:hover {\n  background-color: #F2F2F2;\n}\n._2J53oSLR6Ypa9mGNvgrvQz:hover ._3d8vnJeQhTnlNzD7L2nM54 > * {\n  display: inline-block;\n}\n._2J53oSLR6Ypa9mGNvgrvQz ._3d8vnJeQhTnlNzD7L2nM54 {\n  height: 16px;\n  width: 6rem;\n  text-align: right;\n  padding-right: 0.25rem;\n}\n._2J53oSLR6Ypa9mGNvgrvQz ._3d8vnJeQhTnlNzD7L2nM54 > * {\n  display: none;\n}", "",{"version":3,"sources":["webpack://./src/ui/SideNav/styles.scss","webpack://./src/ui/_global.scss"],"names":[],"mappings":"AAGA;EAEC,aAAA;EACA,8BAAA;EACA,mBAAA;EAEA,4BAAA;EAEA,eAAA;EAEA,iCCPW;EDQX,WCbe;EDef,6BAAA;AAPD;AASC;EACC,aAAA;EACA,WAAA;EACA,mBAAA;EAEA,qBAAA;EAEA,iBAAA;EACA,WAAA;AATF;AAYC;EACC,yBC1BiB;ADgBnB;AAYE;EACC,qBAAA;AAVH;AAcC;EACC,YAAA;EACA,WAAA;EACA,iBAAA;EACA,sBAAA;AAZF;AAeC;EACC,aAAA;AAbF","sourcesContent":["\n@use '../global' as global;\n\n.file {\n\n\tdisplay: flex;\n\tjustify-content: space-between;\n\talign-items: center;\n\t\n\tpadding: .25rem 0 .25rem 0;\n\n\tcursor: pointer;\n\n\tfont-family: global.$main-font;\n\tcolor: global.$primary-color;\n\t\n\tborder-bottom: 1px solid global.$tertiary-color;\n\n\tspan {\n\t\tdisplay: flex;\n\t\tgap: .5rem;\n\t\talign-items: center;\n\n\t\tpadding-left: .25rem;\n\n\t\tfont-size: .8rem;\n\t\tcolor: #333;\n\t}\n\n\t&:hover {\n\t\tbackground-color: global.$quaternary-color;\n\n\t\t.icons > * {\n\t\t\tdisplay: inline-block;\n\t\t}\n\t}\n\n\t.icons {\n\t\theight: 16px;\n\t\twidth: 6rem;\n\t\ttext-align: right;\n\t\tpadding-right: .25rem;\n\t}\n\n\t.icons > * {\n\t\tdisplay: none;\n\t}\n\n}\n","\n$primary-color: #333 ;\n$secondary-color: #555;\n$tertiary-color: #DDD;\n$quaternary-color: #F2F2F2;\n\n$main-font: 'Roboto', sans-serif;\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "._2J53oSLR6Ypa9mGNvgrvQz {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0.25rem 0 0.25rem 0;\n  cursor: pointer;\n  font-family: \"Roboto\", sans-serif;\n  color: #333;\n  border-bottom: 1px solid #DDD;\n}\n._2J53oSLR6Ypa9mGNvgrvQz span {\n  display: flex;\n  gap: 0.5rem;\n  align-items: center;\n  padding-left: 0.25rem;\n  font-size: 0.8rem;\n  color: #333;\n}\n._2J53oSLR6Ypa9mGNvgrvQz:hover {\n  background-color: #F2F2F2;\n}\n._2J53oSLR6Ypa9mGNvgrvQz:hover ._3d8vnJeQhTnlNzD7L2nM54 > * {\n  display: inline-block;\n}\n._2J53oSLR6Ypa9mGNvgrvQz ._3d8vnJeQhTnlNzD7L2nM54 {\n  height: 16px;\n  width: 6rem;\n  text-align: right;\n  padding-right: 0.25rem;\n}\n._2J53oSLR6Ypa9mGNvgrvQz ._3d8vnJeQhTnlNzD7L2nM54 > * {\n  display: none;\n}\n\n.gQpPGC_DAy_dmOkaQImvr {\n  font-size: 14px;\n  background-color: #fff;\n  border-radius: 2px;\n  padding: 5px 0 5px 0;\n  width: 150px;\n  height: auto;\n  margin: 0;\n  /* use absolute positioning  */\n  position: absolute;\n  list-style: none;\n  box-shadow: 0 0 20px 0 #ccc;\n  opacity: 1;\n  transition: opacity 0.5s linear;\n}", "",{"version":3,"sources":["webpack://./src/ui/SideNav/styles.scss","webpack://./src/ui/_global.scss"],"names":[],"mappings":"AAGA;EAEC,aAAA;EACA,8BAAA;EACA,mBAAA;EAEA,4BAAA;EAEA,eAAA;EAEA,iCCPW;EDQX,WCbe;EDef,6BAAA;AAPD;AASC;EACC,aAAA;EACA,WAAA;EACA,mBAAA;EAEA,qBAAA;EAEA,iBAAA;EACA,WAAA;AATF;AAYC;EACC,yBC1BiB;ADgBnB;AAYE;EACC,qBAAA;AAVH;AAcC;EACC,YAAA;EACA,WAAA;EACA,iBAAA;EACA,sBAAA;AAZF;AAeC;EACC,aAAA;AAbF;;AAkBA;EAEC,eAAA;EACC,sBAAA;EACA,kBAAA;EACA,oBAAA;EACA,YAAA;EACA,YAAA;EACA,SAAA;EACF,8BAAA;EACE,kBAAA;EACA,gBAAA;EACA,2BAAA;EACA,UAAA;EACA,+BAAA;AAhBF","sourcesContent":["\n@use '../global' as global;\n\n.file {\n\n\tdisplay: flex;\n\tjustify-content: space-between;\n\talign-items: center;\n\t\n\tpadding: .25rem 0 .25rem 0;\n\n\tcursor: pointer;\n\n\tfont-family: global.$main-font;\n\tcolor: global.$primary-color;\n\t\n\tborder-bottom: 1px solid global.$tertiary-color;\n\n\tspan {\n\t\tdisplay: flex;\n\t\tgap: .5rem;\n\t\talign-items: center;\n\n\t\tpadding-left: .25rem;\n\n\t\tfont-size: .8rem;\n\t\tcolor: #333;\n\t}\n\n\t&:hover {\n\t\tbackground-color: global.$quaternary-color;\n\n\t\t.icons > * {\n\t\t\tdisplay: inline-block;\n\t\t}\n\t}\n\n\t.icons {\n\t\theight: 16px;\n\t\twidth: 6rem;\n\t\ttext-align: right;\n\t\tpadding-right: .25rem;\n\t}\n\n\t.icons > * {\n\t\tdisplay: none;\n\t}\n\n}\n\n.contextmenu {\n\n\tfont-size: 14px;\n  background-color: #fff;\n  border-radius: 2px;\n  padding: 5px 0 5px 0;\n  width: 150px;\n  height: auto;\n  margin: 0;\n/* use absolute positioning  */\n  position: absolute;\n  list-style: none;\n  box-shadow: 0 0 20px 0 #ccc;\n  opacity: 1;\n  transition: opacity 0.5s linear;\n\n}\n","\n$primary-color: #333 ;\n$secondary-color: #555;\n$tertiary-color: #DDD;\n$quaternary-color: #F2F2F2;\n\n$main-font: 'Roboto', sans-serif;\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"file": "_2J53oSLR6Ypa9mGNvgrvQz",
-	"icons": "_3d8vnJeQhTnlNzD7L2nM54"
+	"icons": "_3d8vnJeQhTnlNzD7L2nM54",
+	"contextmenu": "gQpPGC_DAy_dmOkaQImvr"
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -30637,6 +30638,81 @@ exports.PinIcon = PinIcon;
 
 /***/ }),
 
+/***/ "./src/ui/SideNav/ContextMenu.tsx":
+/*!****************************************!*\
+  !*** ./src/ui/SideNav/ContextMenu.tsx ***!
+  \****************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var styles_scss_1 = __importDefault(__webpack_require__(/*! ./styles.scss */ "./src/ui/SideNav/styles.scss"));
+;
+var ContextMenu = function () {
+    var _a = react_1.useState({
+        x: 0,
+        y: 0,
+        show: false
+    }), state = _a[0], setState = _a[1];
+    var click_out = react_1.useCallback(function () {
+        if (state.show)
+            setState(__assign(__assign({}, state), { show: false }));
+    }, [state, setState]);
+    var handle = react_1.useCallback(function (event) {
+        setState({ x: event.pageX, y: event.pageY, show: true });
+        event.preventDefault();
+    }, [setState]);
+    react_1.useEffect(function () {
+        document.addEventListener('contextmenu', handle);
+        document.addEventListener('click', click_out);
+        return function () {
+            document.removeEventListener('contextmenu', handle);
+            document.removeEventListener('click', click_out);
+        };
+    });
+    if (!state.show)
+        return (react_1.default.createElement(react_1.default.Fragment, null));
+    return (react_1.default.createElement("div", { className: styles_scss_1.default.contextmenu, style: { top: state.y, left: state.x } }, "test"));
+};
+exports.default = ContextMenu;
+
+
+/***/ }),
+
 /***/ "./src/ui/SideNav/Items.tsx":
 /*!**********************************!*\
   !*** ./src/ui/SideNav/Items.tsx ***!
@@ -30697,8 +30773,8 @@ var indent_unit = 'rem';
  * Renders both folders and files
  */
 var Item = function (_a) {
-    var title = _a.title, onClick = _a.onClick, pinned = _a.pinned, icon = _a.icon, depth = _a.depth;
-    return (react_1.default.createElement("div", { style: { marginLeft: "" + depth * indent_size + indent_unit }, className: styles_scss_1.default.file, onClick: onClick },
+    var title = _a.title, onClick = _a.onClick, pinned = _a.pinned, icon = _a.icon, depth = _a.depth, id = _a.id;
+    return (react_1.default.createElement("div", { style: { marginLeft: "" + depth * indent_size + indent_unit }, className: styles_scss_1.default.file, onClick: onClick, "data-id": id },
         react_1.default.createElement("span", null,
             icon,
             react_1.default.createElement("span", null, title)),
@@ -30741,7 +30817,7 @@ var Tree = function (_a) {
         } :
         function () { window.location.href = bookmarks.url || ""; };
     return (react_1.default.createElement("div", { className: styles_scss_1.default.folder },
-        react_1.default.createElement(Item, { title: bookmarks.title, onClick: on_click, pinned: state.pinned, icon: icon, depth: depth }),
+        react_1.default.createElement(Item, { title: bookmarks.title, onClick: on_click, pinned: state.pinned, icon: icon, depth: depth, id: bookmarks.id }),
         !state.collapsed && bookmarks.children && bookmarks.children.length > 0 &&
             bookmarks.children.map(function (child) { return (react_1.default.createElement(Tree, { key: child.id, bookmarks: child, depth: depth + 1 })); })));
 };
@@ -30763,10 +30839,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var Items_1 = __importDefault(__webpack_require__(/*! ./Items */ "./src/ui/SideNav/Items.tsx"));
+var ContextMenu_1 = __importDefault(__webpack_require__(/*! ./ContextMenu */ "./src/ui/SideNav/ContextMenu.tsx"));
 ;
+var rightClick = function (event) {
+    if (event && event.target)
+        console.log(event.target);
+};
 var SideNav = function (_a) {
     var bookmarks = _a.bookmarks, styles = _a.styles;
-    return (react_1.default.createElement("div", { className: styles }, bookmarks && bookmarks.children && bookmarks.children.map(function (child) { return (react_1.default.createElement(Items_1.default, { key: child.id, bookmarks: child, depth: 0 })); })));
+    return (react_1.default.createElement("div", { className: styles },
+        bookmarks && bookmarks.children && bookmarks.children.map(function (child) { return (react_1.default.createElement(Items_1.default, { key: child.id, bookmarks: child, depth: 0 })); }),
+        react_1.default.createElement(ContextMenu_1.default, null)));
 };
 exports.default = SideNav;
 

@@ -22,6 +22,7 @@ interface ItemProps {
 	pinned: boolean;
 	icon: any;
 	depth: number;
+	id: string;
 };
 
 interface TreeProps extends BookmarkProps {
@@ -40,12 +41,13 @@ interface TreeState {
  * The actual item that is rendered
  * Renders both folders and files
  */
-const Item = ({ title, onClick, pinned, icon, depth }: ItemProps) => (
+const Item = ({ title, onClick, pinned, icon, depth, id }: ItemProps) => (
 	
 	<div 
 		style={{ marginLeft: `${depth * indent_size}${indent_unit}` }} 
 		className={styles.file} 
 		onClick={onClick}
+		data-id={id}
 	>
 		<span>
 			{ icon }
@@ -112,6 +114,7 @@ const Tree = ({ bookmarks, depth }: TreeProps) => {
 				pinned={state.pinned}
 				icon={icon}
 				depth={depth}
+				id={bookmarks.id}
 			/>
 
 			{ !state.collapsed && bookmarks.children && bookmarks.children.length > 0 && 
