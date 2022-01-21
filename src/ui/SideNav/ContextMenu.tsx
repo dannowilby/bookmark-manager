@@ -10,7 +10,7 @@ interface ContextMenuState {
 
 interface MenuOption {
 	text: string;
-	onClick: (me: MouseEvent) => void;
+	onClick: (data: ContextMenuState) => () => void;
 };
 
 interface ContextMenuProps {
@@ -31,8 +31,12 @@ const ContextMenu = ({ items }: ContextMenuProps) => {
 	}, [state, setState]);
 
 	const handle = useCallback((event: MouseEvent) => {
-		setState({ x: event.pageX, y: event.pageY, show: true });
 		event.preventDefault();
+		setState({ 
+			x: event.pageX, 
+			y: event.pageY, 
+			show: true 
+		});
 	}, [setState]);
 
 	useEffect(() => {
@@ -53,9 +57,13 @@ const ContextMenu = ({ items }: ContextMenuProps) => {
 			className={styles.contextmenu}
 			style={{ top: state.y, left: state.x }}
 		>
+			{ items && items.map((v, k) => (
+				<a key={k} onClick={v.onClick(state)}>{v.text}</a>
+			))}
 		</div>
 	);
 }
 
 
+export { ContextMenuState, MenuOption };
 export default ContextMenu;

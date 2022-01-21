@@ -30696,8 +30696,12 @@ var ContextMenu = function (_a) {
             setState(__assign(__assign({}, state), { show: false }));
     }, [state, setState]);
     var handle = react_1.useCallback(function (event) {
-        setState({ x: event.pageX, y: event.pageY, show: true });
         event.preventDefault();
+        setState({
+            x: event.pageX,
+            y: event.pageY,
+            show: true
+        });
     }, [setState]);
     react_1.useEffect(function () {
         document.addEventListener('contextmenu', handle);
@@ -30709,7 +30713,7 @@ var ContextMenu = function (_a) {
     });
     if (!state.show)
         return (react_1.default.createElement(react_1.default.Fragment, null));
-    return (react_1.default.createElement("div", { className: styles_scss_1.default.contextmenu, style: { top: state.y, left: state.x } }));
+    return (react_1.default.createElement("div", { className: styles_scss_1.default.contextmenu, style: { top: state.y, left: state.x } }, items && items.map(function (v, k) { return (react_1.default.createElement("a", { key: k, onClick: v.onClick(state) }, v.text)); })));
 };
 exports.default = ContextMenu;
 
