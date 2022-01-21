@@ -8,7 +8,16 @@ interface ContextMenuState {
 	show: boolean;
 };
 
-const ContextMenu = () => {
+interface MenuOption {
+	text: string;
+	onClick: (me: MouseEvent) => void;
+};
+
+interface ContextMenuProps {
+	items?: Array<MenuOption>;
+};
+
+const ContextMenu = ({ items }: ContextMenuProps) => {
 
 	const [state, setState] = useState<ContextMenuState>({
 		x: 0,

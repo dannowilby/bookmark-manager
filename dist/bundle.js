@@ -30682,12 +30682,15 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var styles_scss_1 = __importDefault(__webpack_require__(/*! ./styles.scss */ "./src/ui/SideNav/styles.scss"));
 ;
-var ContextMenu = function () {
-    var _a = react_1.useState({
+;
+;
+var ContextMenu = function (_a) {
+    var items = _a.items;
+    var _b = react_1.useState({
         x: 0,
         y: 0,
         show: false
-    }), state = _a[0], setState = _a[1];
+    }), state = _b[0], setState = _b[1];
     var click_out = react_1.useCallback(function () {
         if (state.show)
             setState(__assign(__assign({}, state), { show: false }));
@@ -30706,7 +30709,7 @@ var ContextMenu = function () {
     });
     if (!state.show)
         return (react_1.default.createElement(react_1.default.Fragment, null));
-    return (react_1.default.createElement("div", { className: styles_scss_1.default.contextmenu, style: { top: state.y, left: state.x } }, "test"));
+    return (react_1.default.createElement("div", { className: styles_scss_1.default.contextmenu, style: { top: state.y, left: state.x } }));
 };
 exports.default = ContextMenu;
 
