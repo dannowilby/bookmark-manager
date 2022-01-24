@@ -20,7 +20,9 @@ const rightClick = (event: any) => {
 const SideNav = ({ bookmarks, styles }: SideNavProps) => (
 	<div className={styles}>
 		{ bookmarks && bookmarks.children && bookmarks.children.map((child) => (<Tree key={child.id} bookmarks={child} depth={0} />))}
-		<ContextMenu />
+		<ContextMenu items={[ 
+			{ text: 'Click me', onClick: (e) => () => { console.log('test'); }} 
+		]} />
 	</div>
 )
 

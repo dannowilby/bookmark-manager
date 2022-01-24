@@ -30856,7 +30856,9 @@ var SideNav = function (_a) {
     var bookmarks = _a.bookmarks, styles = _a.styles;
     return (react_1.default.createElement("div", { className: styles },
         bookmarks && bookmarks.children && bookmarks.children.map(function (child) { return (react_1.default.createElement(Items_1.default, { key: child.id, bookmarks: child, depth: 0 })); }),
-        react_1.default.createElement(ContextMenu_1.default, null)));
+        react_1.default.createElement(ContextMenu_1.default, { items: [
+                { text: 'Click me', onClick: function (e) { return function () { console.log('test'); }; } }
+            ] })));
 };
 exports.default = SideNav;
 
