@@ -1,27 +1,52 @@
 
 import React, { useEffect } from 'react';
 
+import { create_sub_folder } from '../../Bookmark';
 import { BookmarkProps } from '../../util';
 
 import Tree from './Items';
-import ContextMenu from '../util/ContextMenu';
+import ContextMenu, { ContextMenuState } from '../util/ContextMenu';
 
 interface SideNavProps extends BookmarkProps {
 	styles: string;
+	refresh: () => void;
 };
 
-const rightClick = (event: any) => {
+// get the bookmark id from the passed data
+const get_id = (cms: ContextMenuState) => {
+	
+	if(!cms.event)
+		return -1;
 
-	if(event && event.target)
-		console.log(event.target);
+	let target = cms.event.target as HTMLElement;
 
-};
+	if(target.nodeName == "SPAN" && target.parentElement)
+		target = target.parentElement;
+	if(target.nodeName == "SPAN" && target.parentElement)
+		target = target.parentElement;
+	
+	if(target.nodeName != "DIV")
+		return -1;
 
-const SideNav = ({ bookmarks, styles }: SideNavProps) => (
+	const id = target.dataset.id;
+
+	if(id) return id;
+
+	return -1;
+
+}
+
+const SideNav = ({ bookmarks, styles, refresh }: SideNavProps) => (
 	<div className={styles}>
 		{ bookmarks && bookmarks.children && bookmarks.children.map((child) => (<Tree key={child.id} bookmarks={child} depth={0} />))}
 		<ContextMenu items={[ 
-			{ text: 'Click me', onClick: (e) => () => { console.log('test'); }} 
+			{ text: 'Add new subfolder', onClick: (e) => () => {
+				const id = get_id(e);
+				if(id == -1)
+					return;
+				create_sub_folder(id);
+				refresh();
+			}} 
 		]} />
 	</div>
 )

@@ -30472,17 +30472,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var Bookmark_1 = __webpack_require__(/*! ./Bookmark */ "./src/Bookmark.tsx");
 var index_1 = __importDefault(__webpack_require__(/*! ./ui/SideNav/index */ "./src/ui/SideNav/index.tsx"));
 var index_2 = __importDefault(__webpack_require__(/*! ./ui/Header/index */ "./src/ui/Header/index.tsx"));
 var styles_scss_1 = __importDefault(__webpack_require__(/*! ./styles.scss */ "./src/styles.scss"));
+var refresh_helper = function (setState) { return function () {
+    Bookmark_1.get_bookmark_tree(function (results) { return setState(results[0]); });
+}; };
 var App = function () {
     var _a = react_1.useState(null), state = _a[0], setState = _a[1];
-    react_1.useEffect(function () { return chrome.bookmarks.getTree(function (results) {
-        return setState(results[0]);
-    }); }, []);
+    var refresh = refresh_helper(setState);
+    react_1.useEffect(refresh, []);
+    console.log(state);
     return (react_1.default.createElement("div", { className: styles_scss_1.default.container },
         react_1.default.createElement(index_2.default, null),
-        react_1.default.createElement(index_1.default, { bookmarks: state, styles: styles_scss_1.default.nav })));
+        react_1.default.createElement(index_1.default, { bookmarks: state, styles: styles_scss_1.default.nav, refresh: refresh })));
 };
 exports.default = App;
 
@@ -30497,11 +30501,17 @@ exports.default = App;
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.update_bookmark = exports.create_sub_folder = void 0;
+exports.update_bookmark = exports.create_sub_folder = exports.get_bookmark_tree = void 0;
+var get_bookmark_tree = function (callback) {
+    return chrome.bookmarks.getTree(callback);
+};
+exports.get_bookmark_tree = get_bookmark_tree;
 var create_sub_folder = function (pid) {
     chrome.bookmarks.create({
         parentId: pid,
-        title: "New folder"
+        title: "New folder",
+        url: undefined,
+        index: 0
     });
 };
 exports.create_sub_folder = create_sub_folder;
@@ -30798,7 +30808,7 @@ var Tree = function (_a) {
     }, []);
     if (!state.has_loaded)
         return (react_1.default.createElement(react_1.default.Fragment, null));
-    var is_folder = bookmarks.children && bookmarks.children.length > 0 || depth == 0;
+    var is_folder = bookmarks.children && bookmarks.children.length > 0 || depth == 0 || !bookmarks.url;
     var icon = is_folder ?
         react_1.default.createElement(Icons_1.CollapsableCaretIcon, { open: state.collapsed, size: 16 }) :
         react_1.default.createElement("img", { src: "https://www.google.com/s2/favicons?domain=" + bookmarks.url, width: "16", height: "16" });
@@ -30830,19 +30840,38 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var Bookmark_1 = __webpack_require__(/*! ../../Bookmark */ "./src/Bookmark.tsx");
 var Items_1 = __importDefault(__webpack_require__(/*! ./Items */ "./src/ui/SideNav/Items.tsx"));
 var ContextMenu_1 = __importDefault(__webpack_require__(/*! ../util/ContextMenu */ "./src/ui/util/ContextMenu.tsx"));
 ;
-var rightClick = function (event) {
-    if (event && event.target)
-        console.log(event.target);
+// get the bookmark id from the passed data
+var get_id = function (cms) {
+    if (!cms.event)
+        return -1;
+    var target = cms.event.target;
+    if (target.nodeName == "SPAN" && target.parentElement)
+        target = target.parentElement;
+    if (target.nodeName == "SPAN" && target.parentElement)
+        target = target.parentElement;
+    if (target.nodeName != "DIV")
+        return -1;
+    var id = target.dataset.id;
+    if (id)
+        return id;
+    return -1;
 };
 var SideNav = function (_a) {
-    var bookmarks = _a.bookmarks, styles = _a.styles;
+    var bookmarks = _a.bookmarks, styles = _a.styles, refresh = _a.refresh;
     return (react_1.default.createElement("div", { className: styles },
         bookmarks && bookmarks.children && bookmarks.children.map(function (child) { return (react_1.default.createElement(Items_1.default, { key: child.id, bookmarks: child, depth: 0 })); }),
         react_1.default.createElement(ContextMenu_1.default, { items: [
-                { text: 'Click me', onClick: function (e) { return function () { console.log('test'); }; } }
+                { text: 'Add new subfolder', onClick: function (e) { return function () {
+                        var id = get_id(e);
+                        if (id == -1)
+                            return;
+                        Bookmark_1.create_sub_folder(id);
+                        refresh();
+                    }; } }
             ] })));
 };
 exports.default = SideNav;
@@ -30897,12 +30926,12 @@ var styles_scss_1 = __importDefault(__webpack_require__(/*! ./styles.scss */ "./
 ;
 ;
 var ContextMenu = function (_a) {
+    var _b, _c;
     var items = _a.items;
-    var _b = react_1.useState({
-        x: 0,
-        y: 0,
-        show: false
-    }), state = _b[0], setState = _b[1];
+    var _d = react_1.useState({
+        show: false,
+        event: null
+    }), state = _d[0], setState = _d[1];
     var click_out = react_1.useCallback(function () {
         if (state.show)
             setState(__assign(__assign({}, state), { show: false }));
@@ -30910,9 +30939,8 @@ var ContextMenu = function (_a) {
     var handle = react_1.useCallback(function (event) {
         event.preventDefault();
         setState({
-            x: event.pageX,
-            y: event.pageY,
-            show: true
+            show: true,
+            event: event
         });
     }, [setState]);
     react_1.useEffect(function () {
@@ -30925,7 +30953,7 @@ var ContextMenu = function (_a) {
     });
     if (!state.show)
         return (react_1.default.createElement(react_1.default.Fragment, null));
-    return (react_1.default.createElement("div", { className: styles_scss_1.default.contextmenu, style: { top: state.y, left: state.x } }, items && items.map(function (v, k) { return (react_1.default.createElement("a", { key: k, onClick: v.onClick(state) }, v.text)); })));
+    return (react_1.default.createElement("div", { className: styles_scss_1.default.contextmenu, style: { top: (_b = state.event) === null || _b === void 0 ? void 0 : _b.pageY, left: (_c = state.event) === null || _c === void 0 ? void 0 : _c.pageX } }, items && items.map(function (v, k) { return (react_1.default.createElement("a", { key: k, onClick: v.onClick(state) }, v.text)); })));
 };
 exports.default = ContextMenu;
 

@@ -3,9 +3,8 @@ import React, { useCallback, useEffect, useState } from 'react';
 import styles from './styles.scss';
 
 interface ContextMenuState {
-	x: number;
-	y: number;
 	show: boolean;
+	event: MouseEvent | null;
 };
 
 interface MenuOption {
@@ -20,9 +19,8 @@ interface ContextMenuProps {
 const ContextMenu = ({ items }: ContextMenuProps) => {
 
 	const [state, setState] = useState<ContextMenuState>({
-		x: 0,
-		y: 0,
-		show: false
+		show: false,
+		event: null
 	});
 
 	const click_out = useCallback(() => {
@@ -33,9 +31,8 @@ const ContextMenu = ({ items }: ContextMenuProps) => {
 	const handle = useCallback((event: MouseEvent) => {
 		event.preventDefault();
 		setState({ 
-			x: event.pageX, 
-			y: event.pageY, 
-			show: true 
+			show: true,
+			event: event
 		});
 	}, [setState]);
 
@@ -55,7 +52,7 @@ const ContextMenu = ({ items }: ContextMenuProps) => {
 	return (
 		<div 
 			className={styles.contextmenu}
-			style={{ top: state.y, left: state.x }}
+			style={{ top: state.event?.pageY, left: state.event?.pageX }}
 		>
 			{ items && items.map((v, k) => (
 				<a key={k} onClick={v.onClick(state)}>{v.text}</a>

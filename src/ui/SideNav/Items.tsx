@@ -92,7 +92,7 @@ const Tree = ({ bookmarks, depth }: TreeProps) => {
 	if(!state.has_loaded)
 		return (<></>);
 
-	const is_folder = bookmarks.children && bookmarks.children.length > 0 || depth == 0;
+	const is_folder = bookmarks.children && bookmarks.children.length > 0 || depth == 0 || !bookmarks.url;
 	
 	const icon = is_folder ? 
 		<CollapsableCaretIcon open={state.collapsed} size={16} /> : 
