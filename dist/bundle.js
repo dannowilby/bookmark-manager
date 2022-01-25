@@ -80,12 +80,40 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "._2J53oSLR6Ypa9mGNvgrvQz {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0.25rem 0 0.25rem 0;\n  cursor: pointer;\n  font-family: \"Roboto\", sans-serif;\n  color: #333;\n  border-bottom: 1px solid #DDD;\n}\n._2J53oSLR6Ypa9mGNvgrvQz span {\n  display: flex;\n  gap: 0.5rem;\n  align-items: center;\n  padding-left: 0.25rem;\n  font-size: 0.8rem;\n  color: #333;\n}\n._2J53oSLR6Ypa9mGNvgrvQz:hover {\n  background-color: #F2F2F2;\n}\n._2J53oSLR6Ypa9mGNvgrvQz:hover ._3d8vnJeQhTnlNzD7L2nM54 > * {\n  display: inline-block;\n}\n._2J53oSLR6Ypa9mGNvgrvQz ._3d8vnJeQhTnlNzD7L2nM54 {\n  height: 16px;\n  width: 6rem;\n  text-align: right;\n  padding-right: 0.25rem;\n}\n._2J53oSLR6Ypa9mGNvgrvQz ._3d8vnJeQhTnlNzD7L2nM54 > * {\n  display: none;\n}\n\n.gQpPGC_DAy_dmOkaQImvr {\n  font-size: 14px;\n  background-color: #fff;\n  border-radius: 2px;\n  padding: 5px 0 5px 0;\n  width: 150px;\n  height: auto;\n  margin: 0;\n  /* use absolute positioning  */\n  position: absolute;\n  list-style: none;\n  box-shadow: 0 0 20px 0 #ccc;\n  opacity: 1;\n  transition: opacity 0.5s linear;\n}", "",{"version":3,"sources":["webpack://./src/ui/SideNav/styles.scss","webpack://./src/ui/_global.scss"],"names":[],"mappings":"AAGA;EAEC,aAAA;EACA,8BAAA;EACA,mBAAA;EAEA,4BAAA;EAEA,eAAA;EAEA,iCCPW;EDQX,WCbe;EDef,6BAAA;AAPD;AASC;EACC,aAAA;EACA,WAAA;EACA,mBAAA;EAEA,qBAAA;EAEA,iBAAA;EACA,WAAA;AATF;AAYC;EACC,yBC1BiB;ADgBnB;AAYE;EACC,qBAAA;AAVH;AAcC;EACC,YAAA;EACA,WAAA;EACA,iBAAA;EACA,sBAAA;AAZF;AAeC;EACC,aAAA;AAbF;;AAkBA;EAEC,eAAA;EACC,sBAAA;EACA,kBAAA;EACA,oBAAA;EACA,YAAA;EACA,YAAA;EACA,SAAA;EACF,8BAAA;EACE,kBAAA;EACA,gBAAA;EACA,2BAAA;EACA,UAAA;EACA,+BAAA;AAhBF","sourcesContent":["\n@use '../global' as global;\n\n.file {\n\n\tdisplay: flex;\n\tjustify-content: space-between;\n\talign-items: center;\n\t\n\tpadding: .25rem 0 .25rem 0;\n\n\tcursor: pointer;\n\n\tfont-family: global.$main-font;\n\tcolor: global.$primary-color;\n\t\n\tborder-bottom: 1px solid global.$tertiary-color;\n\n\tspan {\n\t\tdisplay: flex;\n\t\tgap: .5rem;\n\t\talign-items: center;\n\n\t\tpadding-left: .25rem;\n\n\t\tfont-size: .8rem;\n\t\tcolor: #333;\n\t}\n\n\t&:hover {\n\t\tbackground-color: global.$quaternary-color;\n\n\t\t.icons > * {\n\t\t\tdisplay: inline-block;\n\t\t}\n\t}\n\n\t.icons {\n\t\theight: 16px;\n\t\twidth: 6rem;\n\t\ttext-align: right;\n\t\tpadding-right: .25rem;\n\t}\n\n\t.icons > * {\n\t\tdisplay: none;\n\t}\n\n}\n\n.contextmenu {\n\n\tfont-size: 14px;\n  background-color: #fff;\n  border-radius: 2px;\n  padding: 5px 0 5px 0;\n  width: 150px;\n  height: auto;\n  margin: 0;\n/* use absolute positioning  */\n  position: absolute;\n  list-style: none;\n  box-shadow: 0 0 20px 0 #ccc;\n  opacity: 1;\n  transition: opacity 0.5s linear;\n\n}\n","\n$primary-color: #333 ;\n$secondary-color: #555;\n$tertiary-color: #DDD;\n$quaternary-color: #F2F2F2;\n\n$main-font: 'Roboto', sans-serif;\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "._2J53oSLR6Ypa9mGNvgrvQz {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0.25rem 0 0.25rem 0;\n  cursor: pointer;\n  font-family: \"Roboto\", sans-serif;\n  color: #333;\n  border-bottom: 1px solid #DDD;\n}\n._2J53oSLR6Ypa9mGNvgrvQz span {\n  display: flex;\n  gap: 0.5rem;\n  align-items: center;\n  padding-left: 0.25rem;\n  font-size: 0.8rem;\n  color: #333;\n}\n._2J53oSLR6Ypa9mGNvgrvQz:hover {\n  background-color: #F2F2F2;\n}\n._2J53oSLR6Ypa9mGNvgrvQz:hover ._3d8vnJeQhTnlNzD7L2nM54 > * {\n  display: inline-block;\n}\n._2J53oSLR6Ypa9mGNvgrvQz ._3d8vnJeQhTnlNzD7L2nM54 {\n  height: 16px;\n  width: 6rem;\n  text-align: right;\n  padding-right: 0.25rem;\n}\n._2J53oSLR6Ypa9mGNvgrvQz ._3d8vnJeQhTnlNzD7L2nM54 > * {\n  display: none;\n}", "",{"version":3,"sources":["webpack://./src/ui/SideNav/styles.scss","webpack://./src/ui/_global.scss"],"names":[],"mappings":"AAGA;EAEC,aAAA;EACA,8BAAA;EACA,mBAAA;EAEA,4BAAA;EAEA,eAAA;EAEA,iCCPW;EDQX,WCbe;EDef,6BAAA;AAPD;AASC;EACC,aAAA;EACA,WAAA;EACA,mBAAA;EAEA,qBAAA;EAEA,iBAAA;EACA,WAAA;AATF;AAYC;EACC,yBC1BiB;ADgBnB;AAYE;EACC,qBAAA;AAVH;AAcC;EACC,YAAA;EACA,WAAA;EACA,iBAAA;EACA,sBAAA;AAZF;AAeC;EACC,aAAA;AAbF","sourcesContent":["\n@use '../global' as global;\n\n.file {\n\n\tdisplay: flex;\n\tjustify-content: space-between;\n\talign-items: center;\n\t\n\tpadding: .25rem 0 .25rem 0;\n\n\tcursor: pointer;\n\n\tfont-family: global.$main-font;\n\tcolor: global.$primary-color;\n\t\n\tborder-bottom: 1px solid global.$tertiary-color;\n\n\tspan {\n\t\tdisplay: flex;\n\t\tgap: .5rem;\n\t\talign-items: center;\n\n\t\tpadding-left: .25rem;\n\n\t\tfont-size: .8rem;\n\t\tcolor: #333;\n\t}\n\n\t&:hover {\n\t\tbackground-color: global.$quaternary-color;\n\n\t\t.icons > * {\n\t\t\tdisplay: inline-block;\n\t\t}\n\t}\n\n\t.icons {\n\t\theight: 16px;\n\t\twidth: 6rem;\n\t\ttext-align: right;\n\t\tpadding-right: .25rem;\n\t}\n\n\t.icons > * {\n\t\tdisplay: none;\n\t}\n\n}\n\n","\n$primary-color: #333 ;\n$secondary-color: #555;\n$tertiary-color: #DDD;\n$quaternary-color: #F2F2F2;\n\n$main-font: 'Roboto', sans-serif;\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"file": "_2J53oSLR6Ypa9mGNvgrvQz",
-	"icons": "_3d8vnJeQhTnlNzD7L2nM54",
-	"contextmenu": "gQpPGC_DAy_dmOkaQImvr"
+	"icons": "_3d8vnJeQhTnlNzD7L2nM54"
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/ui/util/styles.scss":
+/*!******************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/ui/util/styles.scss ***!
+  \******************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/cssWithMappingToString.js */ "./node_modules/css-loader/dist/runtime/cssWithMappingToString.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".NwUl2zd2UTbxtC8ujYUSw {\n  font-size: 14px;\n  background-color: #fff;\n  border-radius: 2px;\n  padding: 5px 0 5px 0;\n  width: 150px;\n  height: auto;\n  margin: 0;\n  /* use absolute positioning  */\n  position: absolute;\n  list-style: none;\n  box-shadow: 0 0 20px 0 #ccc;\n  opacity: 1;\n  transition: opacity 0.5s linear;\n}", "",{"version":3,"sources":["webpack://./src/ui/util/styles.scss"],"names":[],"mappings":"AACA;EAEC,eAAA;EACC,sBAAA;EACA,kBAAA;EACA,oBAAA;EACA,YAAA;EACA,YAAA;EACA,SAAA;EACF,8BAAA;EACE,kBAAA;EACA,gBAAA;EACA,2BAAA;EACA,UAAA;EACA,+BAAA;AADF","sourcesContent":["\n.contextmenu {\n\n\tfont-size: 14px;\n  background-color: #fff;\n  border-radius: 2px;\n  padding: 5px 0 5px 0;\n  width: 150px;\n  height: auto;\n  margin: 0;\n/* use absolute positioning  */\n  position: absolute;\n  list-style: none;\n  box-shadow: 0 0 20px 0 #ccc;\n  opacity: 1;\n  transition: opacity 0.5s linear;\n\n}\n"],"sourceRoot":""}]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	"contextmenu": "NwUl2zd2UTbxtC8ujYUSw"
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -30106,6 +30134,35 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./src/ui/util/styles.scss":
+/*!*********************************!*\
+  !*** ./src/ui/util/styles.scss ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_0_use_1_node_modules_sass_loader_dist_cjs_js_styles_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!../../../node_modules/sass-loader/dist/cjs.js!./styles.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/ui/util/styles.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_0_use_1_node_modules_sass_loader_dist_cjs_js_styles_scss__WEBPACK_IMPORTED_MODULE_1__.default, options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_0_use_1_node_modules_sass_loader_dist_cjs_js_styles_scss__WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
 /*!****************************************************************************!*\
   !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
@@ -30432,11 +30489,35 @@ exports.default = App;
 
 /***/ }),
 
+/***/ "./src/Bookmark.tsx":
+/*!**************************!*\
+  !*** ./src/Bookmark.tsx ***!
+  \**************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.update_bookmark = exports.create_sub_folder = void 0;
+var create_sub_folder = function (pid) {
+    chrome.bookmarks.create({
+        parentId: pid,
+        title: "New folder"
+    });
+};
+exports.create_sub_folder = create_sub_folder;
+var update_bookmark = function (id, title) {
+    chrome.bookmarks.update(id, { title: title }, function () { });
+};
+exports.update_bookmark = update_bookmark;
+
+
+/***/ }),
+
 /***/ "./src/Preferences.tsx":
 /*!*****************************!*\
   !*** ./src/Preferences.tsx ***!
   \*****************************/
-/***/ (function(__unused_webpack_module, exports) {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
 var __assign = (this && this.__assign) || function () {
@@ -30452,6 +30533,7 @@ var __assign = (this && this.__assign) || function () {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.UserStoredData = exports.update_collapsed = exports.is_collapsed = exports.update_pinned = exports.is_pinned = exports.get_user_stored_data = exports.set_user_stored_data = exports.new_user_stored_data = void 0;
+var util_1 = __webpack_require__(/*! ./util */ "./src/util.tsx");
 ;
 var new_user_stored_data = function () { return ({
     collapsed: new Set(),
@@ -30459,7 +30541,7 @@ var new_user_stored_data = function () { return ({
 }); };
 exports.new_user_stored_data = new_user_stored_data;
 var set_user_stored_data = function (preferences) {
-    var converted = __assign(__assign({}, preferences), { collapsed: set_to_object(preferences.collapsed), pinned: set_to_object(preferences.pinned) });
+    var converted = __assign(__assign({}, preferences), { collapsed: util_1.set_to_object(preferences.collapsed), pinned: util_1.set_to_object(preferences.pinned) });
     chrome.storage.sync.set({ 'stored': converted });
 };
 exports.set_user_stored_data = set_user_stored_data;
@@ -30474,8 +30556,8 @@ var get_user_stored_data = function () {
             exports.set_user_stored_data(t);
             resolve(t);
         }
-        var collapsed = object_to_set(data.stored.collapsed);
-        var pinned = object_to_set(data.stored.pinned);
+        var collapsed = util_1.object_to_set(data.stored.collapsed);
+        var pinned = util_1.object_to_set(data.stored.pinned);
         resolve(__assign(__assign({}, data.stored), { collapsed: collapsed, pinned: pinned }));
     }); });
 };
@@ -30518,23 +30600,6 @@ var update_collapsed = function (id) {
     });
 };
 exports.update_collapsed = update_collapsed;
-/* HELPER FUNCTIONS */
-var set_to_object = function (set) {
-    var t = {};
-    set.forEach(function (v) {
-        var _a;
-        t = __assign(__assign({}, t), (_a = {}, _a[v] = true, _a));
-    });
-    return t;
-};
-var object_to_set = function (o) {
-    var t = new Set();
-    Object.entries(o).forEach(function (_a) {
-        var k = _a[0], v = _a[1];
-        t.add(k);
-    });
-    return t;
-};
 exports.UserStoredData = exports.get_user_stored_data();
 
 
@@ -30638,88 +30703,6 @@ exports.PinIcon = PinIcon;
 
 /***/ }),
 
-/***/ "./src/ui/SideNav/ContextMenu.tsx":
-/*!****************************************!*\
-  !*** ./src/ui/SideNav/ContextMenu.tsx ***!
-  \****************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var styles_scss_1 = __importDefault(__webpack_require__(/*! ./styles.scss */ "./src/ui/SideNav/styles.scss"));
-;
-;
-;
-var ContextMenu = function (_a) {
-    var items = _a.items;
-    var _b = react_1.useState({
-        x: 0,
-        y: 0,
-        show: false
-    }), state = _b[0], setState = _b[1];
-    var click_out = react_1.useCallback(function () {
-        if (state.show)
-            setState(__assign(__assign({}, state), { show: false }));
-    }, [state, setState]);
-    var handle = react_1.useCallback(function (event) {
-        event.preventDefault();
-        setState({
-            x: event.pageX,
-            y: event.pageY,
-            show: true
-        });
-    }, [setState]);
-    react_1.useEffect(function () {
-        document.addEventListener('contextmenu', handle);
-        document.addEventListener('click', click_out);
-        return function () {
-            document.removeEventListener('contextmenu', handle);
-            document.removeEventListener('click', click_out);
-        };
-    });
-    if (!state.show)
-        return (react_1.default.createElement(react_1.default.Fragment, null));
-    return (react_1.default.createElement("div", { className: styles_scss_1.default.contextmenu, style: { top: state.y, left: state.x } }, items && items.map(function (v, k) { return (react_1.default.createElement("a", { key: k, onClick: v.onClick(state) }, v.text)); })));
-};
-exports.default = ContextMenu;
-
-
-/***/ }),
-
 /***/ "./src/ui/SideNav/Items.tsx":
 /*!**********************************!*\
   !*** ./src/ui/SideNav/Items.tsx ***!
@@ -30762,6 +30745,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var EditTitle_1 = __importDefault(__webpack_require__(/*! ../util/EditTitle */ "./src/ui/util/EditTitle.tsx"));
+var Bookmark_1 = __webpack_require__(/*! ../../Bookmark */ "./src/Bookmark.tsx");
 var Preferences_1 = __webpack_require__(/*! ../../Preferences */ "./src/Preferences.tsx");
 var Icons_1 = __webpack_require__(/*! ../Icons */ "./src/ui/Icons.tsx");
 var styles_scss_1 = __importDefault(__webpack_require__(/*! ./styles.scss */ "./src/ui/SideNav/styles.scss"));
@@ -30784,7 +30769,7 @@ var Item = function (_a) {
     return (react_1.default.createElement("div", { style: { marginLeft: "" + depth * indent_size + indent_unit }, className: styles_scss_1.default.file, onClick: onClick, "data-id": id },
         react_1.default.createElement("span", null,
             icon,
-            react_1.default.createElement("span", null, title)),
+            react_1.default.createElement(EditTitle_1.default, { value: title, onChange: function (text) { Bookmark_1.update_bookmark(id, text); } })),
         react_1.default.createElement("div", { className: styles_scss_1.default.icons },
             react_1.default.createElement(Icons_1.EditIcon, { size: 16 }),
             react_1.default.createElement(Icons_1.PinIcon, { size: 16, open: pinned }),
@@ -30846,7 +30831,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var Items_1 = __importDefault(__webpack_require__(/*! ./Items */ "./src/ui/SideNav/Items.tsx"));
-var ContextMenu_1 = __importDefault(__webpack_require__(/*! ./ContextMenu */ "./src/ui/SideNav/ContextMenu.tsx"));
+var ContextMenu_1 = __importDefault(__webpack_require__(/*! ../util/ContextMenu */ "./src/ui/util/ContextMenu.tsx"));
 ;
 var rightClick = function (event) {
     if (event && event.target)
@@ -30861,6 +30846,187 @@ var SideNav = function (_a) {
             ] })));
 };
 exports.default = SideNav;
+
+
+/***/ }),
+
+/***/ "./src/ui/util/ContextMenu.tsx":
+/*!*************************************!*\
+  !*** ./src/ui/util/ContextMenu.tsx ***!
+  \*************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var styles_scss_1 = __importDefault(__webpack_require__(/*! ./styles.scss */ "./src/ui/util/styles.scss"));
+;
+;
+;
+var ContextMenu = function (_a) {
+    var items = _a.items;
+    var _b = react_1.useState({
+        x: 0,
+        y: 0,
+        show: false
+    }), state = _b[0], setState = _b[1];
+    var click_out = react_1.useCallback(function () {
+        if (state.show)
+            setState(__assign(__assign({}, state), { show: false }));
+    }, [state, setState]);
+    var handle = react_1.useCallback(function (event) {
+        event.preventDefault();
+        setState({
+            x: event.pageX,
+            y: event.pageY,
+            show: true
+        });
+    }, [setState]);
+    react_1.useEffect(function () {
+        document.addEventListener('contextmenu', handle);
+        document.addEventListener('click', click_out);
+        return function () {
+            document.removeEventListener('contextmenu', handle);
+            document.removeEventListener('click', click_out);
+        };
+    });
+    if (!state.show)
+        return (react_1.default.createElement(react_1.default.Fragment, null));
+    return (react_1.default.createElement("div", { className: styles_scss_1.default.contextmenu, style: { top: state.y, left: state.x } }, items && items.map(function (v, k) { return (react_1.default.createElement("a", { key: k, onClick: v.onClick(state) }, v.text)); })));
+};
+exports.default = ContextMenu;
+
+
+/***/ }),
+
+/***/ "./src/ui/util/EditTitle.tsx":
+/*!***********************************!*\
+  !*** ./src/ui/util/EditTitle.tsx ***!
+  \***********************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+;
+// taken out for clarity
+var handleChange = function (onChange) { return function (ev) {
+    onChange((ev === null || ev === void 0 ? void 0 : ev.target).innerText); // have to cast the ev.target to an HTMLElement bc of typescipt
+}; };
+// So you won't be redirected when editing text
+var handleClick = function (ev) {
+    ev === null || ev === void 0 ? void 0 : ev.stopPropagation();
+};
+var EditTitle = function (_a) {
+    var value = _a.value, onChange = _a.onChange;
+    var sp = react_1.useRef(null);
+    react_1.useEffect(function () {
+        var _a;
+        (_a = sp.current) === null || _a === void 0 ? void 0 : _a.addEventListener('input', handleChange(onChange));
+        return function () {
+            var _a;
+            (_a = sp.current) === null || _a === void 0 ? void 0 : _a.removeEventListener('input', handleChange(onChange));
+        };
+    }, [sp]);
+    return (react_1.default.createElement("span", { onClick: handleClick, ref: sp, contentEditable: true }, value));
+};
+exports.default = EditTitle;
+
+
+/***/ }),
+
+/***/ "./src/util.tsx":
+/*!**********************!*\
+  !*** ./src/util.tsx ***!
+  \**********************/
+/***/ (function(__unused_webpack_module, exports) {
+
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.object_to_set = exports.set_to_object = void 0;
+;
+/* HELPER FUNCTIONS */
+var set_to_object = function (set) {
+    var t = {};
+    set.forEach(function (v) {
+        var _a;
+        t = __assign(__assign({}, t), (_a = {}, _a[v] = true, _a));
+    });
+    return t;
+};
+exports.set_to_object = set_to_object;
+var object_to_set = function (o) {
+    var t = new Set();
+    Object.entries(o).forEach(function (_a) {
+        var k = _a[0], v = _a[1];
+        t.add(k);
+    });
+    return t;
+};
+exports.object_to_set = object_to_set;
 
 
 /***/ })

@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import { BookmarkProps } from '../../util';
 
 import Tree from './Items';
-import ContextMenu from './ContextMenu';
+import ContextMenu from '../util/ContextMenu';
 
 interface SideNavProps extends BookmarkProps {
 	styles: string;

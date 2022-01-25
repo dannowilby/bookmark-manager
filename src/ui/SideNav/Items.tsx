@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
+import EditTitle from '../util/EditTitle';
+
+import { update_bookmark } from '../../Bookmark';
+
 import { UserStoredData, is_collapsed, update_collapsed } from '../../Preferences';
 
 import { EditIcon, TrashIcon, CollapsableCaretIcon, PinIcon } from '../Icons';
@@ -51,7 +55,7 @@ const Item = ({ title, onClick, pinned, icon, depth, id }: ItemProps) => (
 	>
 		<span>
 			{ icon }
-			<span>{title}</span>
+			<EditTitle value={title} onChange={(text: string) => { update_bookmark(id, text) }} />
 		</span>
 		<div className={styles.icons}>
 			<EditIcon size={16} />
