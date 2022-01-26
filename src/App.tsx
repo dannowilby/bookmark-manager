@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState, useContext } from 'react';
+import ReactDOM from 'react-dom';
 
 import { get_bookmark_tree } from './Bookmark';
 
@@ -34,4 +35,7 @@ const App = () => {
 
 }
 
-export default App;
+ReactDOM.render(
+	React.createElement(App),
+	document.getElementById('root')
+);

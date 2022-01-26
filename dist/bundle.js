@@ -30472,6 +30472,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_dom_1 = __importDefault(__webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js"));
 var Bookmark_1 = __webpack_require__(/*! ./Bookmark */ "./src/Bookmark.tsx");
 var index_1 = __importDefault(__webpack_require__(/*! ./ui/SideNav/index */ "./src/ui/SideNav/index.tsx"));
 var index_2 = __importDefault(__webpack_require__(/*! ./ui/Header/index */ "./src/ui/Header/index.tsx"));
@@ -30483,12 +30484,11 @@ var App = function () {
     var _a = react_1.useState(null), state = _a[0], setState = _a[1];
     var refresh = refresh_helper(setState);
     react_1.useEffect(refresh, []);
-    console.log(state);
     return (react_1.default.createElement("div", { className: styles_scss_1.default.container },
         react_1.default.createElement(index_2.default, null),
         react_1.default.createElement(index_1.default, { bookmarks: state, styles: styles_scss_1.default.nav, refresh: refresh })));
 };
-exports.default = App;
+react_dom_1.default.render(react_1.default.createElement(App), document.getElementById('root'));
 
 
 /***/ }),
@@ -30611,30 +30611,6 @@ var update_collapsed = function (id) {
 };
 exports.update_collapsed = update_collapsed;
 exports.UserStoredData = exports.get_user_stored_data();
-
-
-/***/ }),
-
-/***/ "./src/index.tsx":
-/*!***********************!*\
-  !*** ./src/index.tsx ***!
-  \***********************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var react_dom_1 = __importDefault(__webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js"));
-var App_1 = __importDefault(__webpack_require__(/*! ./App */ "./src/App.tsx"));
-var Container = function () { return (react_1.default.createElement("div", null,
-    react_1.default.createElement("div", null,
-        react_1.default.createElement("div", null, "Hi there,"),
-        react_1.default.createElement("div", null, "hope you're feeling okay :)")),
-    react_1.default.createElement(App_1.default, null))); };
-react_dom_1.default.render(react_1.default.createElement(App_1.default), document.getElementById('root'));
 
 
 /***/ }),
@@ -31131,7 +31107,7 @@ exports.object_to_set = object_to_set;
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.tsx");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/App.tsx");
 /******/ 	
 /******/ })()
 ;
