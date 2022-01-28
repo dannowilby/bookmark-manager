@@ -40,10 +40,14 @@
 		width: 6rem;
 		text-align: right;
 		padding-right: .25rem;
-	}
 
-	.icons > * {
-		display: none;
+		& > * {
+			display: none;
+		}
+
+		.pinned {
+			display: inline;
+		}
 	}
 
 }

@@ -1,5 +1,7 @@
 
-export const get_bookmark_tree = (callback: (results: chrome.bookmarks.BookmarkTreeNode[]) => void) => 
+export type Bookmark = chrome.bookmarks.BookmarkTreeNode;
+
+export const get_bookmark_tree = (callback: (results: Bookmark[]) => void) => 
 	chrome.bookmarks.getTree(callback); 
 
 export const create_sub_folder = (pid: string) => {
