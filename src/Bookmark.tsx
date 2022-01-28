@@ -11,6 +11,10 @@ export const create_sub_folder = (pid: string) => {
 	});
 }
 
+export const remove_bookmark = (id: string) => {
+	chrome.bookmarks.removeTree(id, () => {});
+};
+
 export const update_bookmark = (id: string, title: string) => {
 	chrome.bookmarks.update(id, { title }, () => {});
 };

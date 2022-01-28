@@ -1,7 +1,7 @@
 
 import React, { useEffect } from 'react';
 
-import { create_sub_folder } from '../../Bookmark';
+import { create_sub_folder, remove_bookmark } from '../../Bookmark';
 import { BookmarkProps } from '../../util';
 
 import Tree from './Items';
@@ -46,7 +46,14 @@ const SideNav = ({ bookmarks, styles, refresh }: SideNavProps) => (
 					return;
 				create_sub_folder(id);
 				refresh();
-			}} 
+			}},
+			{ text: 'Remove bookmark', onClick: (e) => () => {
+				const id = get_id(e);
+				if(id == -1)
+					return;
+				remove_bookmark(id);
+				refresh();
+			}}
 		]} />
 	</div>
 )

@@ -55,7 +55,7 @@ const ContextMenu = ({ items }: ContextMenuProps) => {
 			style={{ top: state.event?.pageY, left: state.event?.pageX }}
 		>
 			{ items && items.map((v, k) => (
-				<a key={k} onClick={v.onClick(state)}>{v.text}</a>
+				<a className={styles.item} key={k} onClick={v.onClick(state)}>{v.text}</a>
 			))}
 		</div>
 	);

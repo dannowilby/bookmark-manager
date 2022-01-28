@@ -2,17 +2,28 @@
 .contextmenu {
 
 	font-size: 14px;
-  background-color: #fff;
-  border-radius: 2px;
-  padding: 5px 0 5px 0;
-  width: 150px;
-  height: auto;
-  margin: 0;
-/* use absolute positioning  */
-  position: absolute;
-  list-style: none;
-  box-shadow: 0 0 20px 0 #ccc;
-  opacity: 1;
-  transition: opacity 0.5s linear;
+  	background-color: #fff;
+  	border-radius: 2px;
+  	padding: 0 .25rem;
+  	width: 150px;
+  	height: auto;
+  	margin: 0;
+
+  	/* use absolute positioning  */
+	position: absolute;
+	box-shadow: 0 0 20px 0 #ccc;
+	opacity: 1;
+	transition: opacity 0.5s linear;
+
+	.item {
+		display: block;
+		margin: .5rem 0;
+		padding: .25rem .5rem;
+		cursor: pointer;
+
+		&:hover {
+			background-color: #ddd;
+		}
+	}
 
 }
