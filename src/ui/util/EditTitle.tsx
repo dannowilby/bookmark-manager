@@ -28,7 +28,7 @@ const EditTitle = ({ value, onChange }: EditTitleProps) => {
 	}, [ sp ]);
 
 	return (
-		<span onClick={handleClick} ref={sp} contentEditable={true}>{value}</span>
+		<span onClick={handleClick} ref={sp} contentEditable={true} suppressContentEditableWarning={true}>{value}</span>
 	);
 
 };

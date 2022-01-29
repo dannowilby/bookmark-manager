@@ -32,7 +32,10 @@ const Item = ({ bookmarks, onClick, onChange, pinned, icon, depth }: ItemProps) 
 	>
 		<span>
 			{ icon }
-			<EditTitle value={bookmarks.title} onChange={onChange} />
+			{ (depth == 0) ? 
+				<span>{bookmarks.title}</span> :
+				<EditTitle value={bookmarks.title} onChange={onChange} />
+			}
 		</span>
 		<div className={[ styles.icons, pinned ? styles.pinned : '' ].join(' ')}>
 			<PinIcon size={16} open={pinned} />
