@@ -20,3 +20,7 @@ export const remove_bookmark = (id: string) => {
 export const update_bookmark = (id: string, title: string) => {
 	chrome.bookmarks.update(id, { title }, () => {});
 };
+
+export const move_bookmark = (pid: string, id: string) => {
+	chrome.bookmarks.move(id, { parentId: pid, index: 0 }, (result: Bookmark) => {});	
+};

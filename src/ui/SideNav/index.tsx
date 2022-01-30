@@ -38,7 +38,7 @@ const get_id = (cms: ContextMenuState) => {
 
 const SideNav = ({ bookmarks, styles, refresh }: SideNavProps) => (
 	<div className={styles}>
-		{ bookmarks && bookmarks.children && bookmarks.children.map((child) => (<Tree key={child.id} bookmarks={child} depth={0} />))}
+		{ bookmarks && bookmarks.children && bookmarks.children.map((child) => (<Tree key={child.id} refresh={refresh} bookmarks={child} depth={0} />))}
 		<ContextMenu items={[ 
 			{ text: 'Add new subfolder', onClick: (e) => () => {
 				const id = get_id(e);

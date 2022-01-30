@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
+import { DragSource, DropTarget } from '../util/Draggable';
 import Item from './Item';
 import { CollapsableCaretIcon } from '../Icons';
 
 import { UserStoredData, is_collapsed, update_collapsed } from '../../Preferences';
-import { Bookmark, update_bookmark } from '../../Bookmark';
+import { Bookmark, update_bookmark, move_bookmark } from '../../Bookmark';
 import { BookmarkProps } from '../../util';
 
 import styles from './styles.scss';
@@ -16,6 +17,7 @@ const check_if_folder = (bookmark: Bookmark, depth: number) => (
 );
 
 interface TreeProps extends BookmarkProps {
+	refresh: () => void;
 	depth: number;
 };
 
@@ -28,7 +30,7 @@ interface TreeState {
 /**
  * A recursive component to render all the bookmark node passed in and all its children
  */
-const Tree = ({ bookmarks, depth }: TreeProps) => {
+const Tree = ({ bookmarks, depth, refresh }: TreeProps) => {
 
 	if(!bookmarks)
 		return (<></>);
@@ -72,9 +74,26 @@ const Tree = ({ bookmarks, depth }: TreeProps) => {
 	// on title change, update the bookmark with the new text
 	const on_change = (text: string) => { update_bookmark(bookmarks.id, text) };
 	
+	const on_drop = (data: string) => {
+	
+		if(!is_folder)
+			return;
+
+		if(data == bookmarks.id)
+			return;
+
+		move_bookmark(bookmarks.id, data);
+		refresh();
+	};
+
 	return (
+		<DropTarget onDrop={on_drop}>
 		<div className={styles.folder}>
 			
+			<DragSource
+				draggable={depth != 0}
+				data={bookmarks.id}
+			>
 			<Item 
 				bookmarks={bookmarks} 
 				onClick={on_click}
@@ -83,13 +102,16 @@ const Tree = ({ bookmarks, depth }: TreeProps) => {
 				icon={icon}
 				depth={depth}
 			/>
+			</DragSource>
+
 
 			{ !state.collapsed && bookmarks.children && bookmarks.children.length > 0 && 
 				bookmarks.children.map((child) => (
-					<Tree key={child.id} bookmarks={child} depth={depth + 1} />
+					<Tree key={child.id} refresh={refresh} bookmarks={child} depth={depth + 1} />
 				)) 
 			}
 		</div>
+		</DropTarget>
 	);
 }
 
