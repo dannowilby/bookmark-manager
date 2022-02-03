@@ -2,7 +2,7 @@ import React from 'react';
 
 import EditTitle from '../util/EditTitle';
 import { PinIcon } from '../Icons';
-import { Bookmark } from '../../Bookmark';
+import { Bookmark } from '../../data/Bookmark';
 
 import styles from './styles.scss';
 

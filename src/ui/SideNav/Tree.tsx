@@ -4,9 +4,8 @@ import { DragSource, DropTarget } from '../util/Draggable';
 import Item from './Item';
 import { CollapsableCaretIcon } from '../Icons';
 
-import { UserStoredData, is_collapsed, update_collapsed } from '../../Preferences';
-import { Bookmark, update_bookmark, move_bookmark } from '../../Bookmark';
-import { BookmarkProps } from '../../util';
+import { UserStoredData, is_collapsed, update_collapsed } from '../../data/Preference';
+import { Bookmark, update_bookmark, move_bookmark } from '../../data/Bookmark';
 
 import styles from './styles.scss';
 
@@ -16,7 +15,8 @@ const check_if_folder = (bookmark: Bookmark, depth: number) => (
 	bookmark.children && bookmark.children.length > 0 || depth == 0 || !bookmark.url
 );
 
-interface TreeProps extends BookmarkProps {
+interface TreeProps {
+	bookmarks: Bookmark;
 	refresh: () => void;
 	depth: number;
 };

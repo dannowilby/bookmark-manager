@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-import { set_to_object, object_to_set } from './util';
+import { set_to_object, object_to_set } from '../util';
 
 /* USER PREFERENCES */
 

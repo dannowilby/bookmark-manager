@@ -1,13 +1,13 @@
 
 import React, { useEffect } from 'react';
 
-import { create_sub_folder, remove_bookmark } from '../../Bookmark';
-import { BookmarkProps } from '../../util';
+import { Bookmark, create_sub_folder, remove_bookmark } from '../../data/Bookmark';
 
 import Tree from './Tree';
 import ContextMenu, { ContextMenuState } from '../util/ContextMenu';
 
-interface SideNavProps extends BookmarkProps {
+interface SideNavProps {
+	bookmarks: Bookmark;
 	styles: string;
 	refresh: () => void;
 };

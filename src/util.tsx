@@ -1,9 +1,4 @@
 
-export interface BookmarkProps {
-	bookmarks: chrome.bookmarks.BookmarkTreeNode | null;
-};
-
-
 /* HELPER FUNCTIONS */
 
 const set_to_object = (set: Set<string>): object => {
