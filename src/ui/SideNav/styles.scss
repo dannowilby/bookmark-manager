@@ -30,24 +30,18 @@
 	&:hover {
 		background-color: global.$quaternary-color;
 
-		.icons > * {
+		.unpinned {
 			display: inline-block;
 		}
+
 	}
 
-	.icons {
-		height: 16px;
-		width: 6rem;
-		text-align: right;
-		padding-right: .25rem;
+	.unpinned {
+		display: none;
+	}
 
-		& > * {
-			display: none;
-		}
-
-		.pinned {
-			display: inline;
-		}
+	.pinned {
+		display: inline-block;
 	}
 
 }

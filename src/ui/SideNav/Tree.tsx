@@ -2,9 +2,16 @@ import React, { useState, useEffect } from 'react';
 
 import { DragSource, DropTarget } from '../util/Draggable';
 import Item from './Item';
-import { CollapsableCaretIcon } from '../Icons';
+import { CollapsableCaretIcon } from '../util/Icons';
 
-import { UserStoredData, is_collapsed, update_collapsed } from '../../data/Preference';
+import { 
+	UserStoredData, 
+	is_collapsed, 
+	update_collapsed, 
+	is_pinned,
+	update_pinned
+} from '../../data/Preference';
+
 import { Bookmark, update_bookmark, move_bookmark } from '../../data/Bookmark';
 
 import styles from './styles.scss';
@@ -46,7 +53,7 @@ const Tree = ({ bookmarks, depth, refresh }: TreeProps) => {
 		UserStoredData.then(data => {
 			setState({ 
 				collapsed: is_collapsed(data, bookmarks.id), 
-				pinned: false, // is_pinned(data, bookmarks.id), 
+				pinned: is_pinned(data, bookmarks.id), // is_pinned(data, bookmarks.id), 
 				has_loaded: true 
 			});
 		})
@@ -73,6 +80,13 @@ const Tree = ({ bookmarks, depth, refresh }: TreeProps) => {
 
 	// on title change, update the bookmark with the new text
 	const on_change = (text: string) => { update_bookmark(bookmarks.id, text) };
+
+	const on_pin = (e: React.MouseEvent) => {
+		e.stopPropagation();
+		e.preventDefault();
+		setState({ ...state, pinned: !state.pinned });
+		update_pinned(bookmarks.id);
+	};
 	
 	const on_drop = (data: string) => {
 	
@@ -98,6 +112,7 @@ const Tree = ({ bookmarks, depth, refresh }: TreeProps) => {
 				bookmarks={bookmarks} 
 				onClick={on_click}
 				onChange={on_change}
+				onPin={on_pin}
 				pinned={state.pinned}
 				icon={icon}
 				depth={depth}
