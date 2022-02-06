@@ -1,0 +1,14 @@
+
+@use '../global' as global;
+
+.title {
+
+  font-family: global.$main-font;
+  color: global.$primary-color;
+
+  margin: 0;
+  padding: .25rem 0;
+
+  border-bottom: 1px solid global.$tertiary-color;
+
+}

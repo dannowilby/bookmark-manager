@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import { Bookmark, get_bookmark_tree } from './data/Bookmark';
 
 import SideNav from './ui/SideNav/index';
+import Pinned from './ui/Pinned/index';
 import Header from './ui/Header/index';
 
 import styles from './styles.scss';
@@ -20,6 +21,10 @@ const default_bookmark: Bookmark = {
 	title: "Loading...",
 };
 
+interface AppState {
+  bookmarks: Bookmark,
+};
+
 const App = () => {
 
 	const [state, setState] = useState<Bookmark>(default_bookmark);
@@ -32,8 +37,8 @@ const App = () => {
 			
 			<Header />
 			
-			<SideNav bookmarks={state} styles={styles.nav} refresh={refresh} />
-			{ /* <Pinned bookmarks={state} /> */ }
+			<SideNav bookmarks={state} className={styles.nav} refresh={refresh} />
+			<Pinned className={styles.pin} />
 
 		</div>
 	);

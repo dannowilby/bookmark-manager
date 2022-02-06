@@ -7,6 +7,21 @@
 
 .nav {
 
-	width: 40vw;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 1rem;
+
+	width: calc(40vw - 1.5rem);
+
+}
+
+.pin {
+
+  display: inline-block;
+  vertical-align: top;
+
+  // TODO: find a better way to account for scrollbar width
+  // currently just using 16px because it works on my system
+  width: calc(calc(60vw - 1.5rem) - 16px);
 
 }
