@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from 'react';
 interface EditTitleProps {
 	value: string;
 	onChange: (text: string) => void;
-};
+}
 
 // taken out for clarity
 const handleChange = (onChange: (text: string) => void) => (ev: Event) => {

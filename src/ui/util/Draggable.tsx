@@ -4,7 +4,7 @@ import React, { ReactNode } from 'react';
 interface DropTargetProps {
 	onDrop: (data: string) => void;
 	children: ReactNode;
-};
+}
 
 const DropTarget = ({ onDrop, children }: DropTargetProps) => {
 
@@ -42,7 +42,7 @@ interface DragSourceProps {
 	draggable: boolean;
 	data: string;
 	children: ReactNode;
-};
+}
 
 const DragSource = ({ draggable, data, children }: DragSourceProps) => {
 	

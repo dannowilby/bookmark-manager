@@ -6,7 +6,7 @@ interface PinnedProps {
 
   className: string;
 
-};
+}
 
 const Pinned = ({ className }: PinnedProps) => {
 

@@ -1,6 +1,4 @@
 
-import React from 'react';
-
 import { set_to_object, object_to_set } from '../util';
 
 /* USER PREFERENCES */
@@ -8,7 +6,7 @@ import { set_to_object, object_to_set } from '../util';
 export interface UserStoredData {
 	collapsed: Set<string>;
 	pinned: Set<string>;
-};
+}
 
 export const new_user_stored_data = (): UserStoredData => ({
 	collapsed: new Set<string>(),

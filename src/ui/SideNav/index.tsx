@@ -10,7 +10,7 @@ interface SideNavProps {
 	bookmarks: Bookmark;
 	className: string;
 	refresh: () => void;
-};
+}
 
 // get the bookmark id from the passed data
 const get_id = (cms: ContextMenuState) => {

@@ -19,7 +19,7 @@ interface ItemProps {
 	pinned: boolean;
 	icon: any;
 	depth: number;
-};
+}
 
 /**
  * The actual item that is rendered

@@ -26,13 +26,13 @@ interface TreeProps {
 	bookmarks: Bookmark;
 	refresh: () => void;
 	depth: number;
-};
+}
 
 interface TreeState {
 	collapsed: boolean;
 	pinned: boolean;
 	has_loaded: boolean;
-};
+}
 
 /**
  * A recursive component to render all the bookmark node passed in and all its children

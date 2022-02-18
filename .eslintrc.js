@@ -20,7 +20,7 @@ module.exports = {
         "react",
         "@typescript-eslint"
     ],
-    "ignorePatterns": [ "node_modules/*", "dist/*" ],
+    "ignorePatterns": [ "node_modules/*", "dist/*", ".eslintrc.js" ],
     "rules": {
     }
 }

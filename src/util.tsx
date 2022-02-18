@@ -14,7 +14,7 @@ const set_to_object = (set: Set<string>): object => {
 
 const object_to_set = (o: object): Set<string> => {
 	
-	let t = new Set<string>();
+	const t = new Set<string>();
 
 	Object.entries(o).forEach(([k, v]) => {
 		t.add(k);

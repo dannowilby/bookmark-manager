@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 
 import { Bookmark, get_bookmark_tree } from './data/Bookmark';
@@ -21,15 +21,11 @@ const default_bookmark: Bookmark = {
 	title: "Loading...",
 };
 
-interface AppState {
-  bookmarks: Bookmark,
-};
-
 const App = () => {
 
 	const [state, setState] = useState<Bookmark>(default_bookmark);
 
-	let refresh = refresh_helper(setState);
+	const refresh = refresh_helper(setState);
 	useEffect(refresh, []);
 
 	return (

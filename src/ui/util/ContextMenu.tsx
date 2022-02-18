@@ -5,16 +5,16 @@ import styles from './styles.scss';
 interface ContextMenuState {
 	show: boolean;
 	event: MouseEvent | null;
-};
+}
 
 interface MenuOption {
 	text: string;
 	onClick: (data: ContextMenuState) => () => void;
-};
+}
 
 interface ContextMenuProps {
 	items?: Array<MenuOption>;
-};
+}
 
 const ContextMenu = ({ items }: ContextMenuProps) => {
 
