@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "test": "jest --coverage",
+    "lint": "eslint --ext .ts,.tsx,.js .",
     "build": "webpack --watch"
   },
   "author": "Daniel Y. Wilby",
@@ -29,6 +30,10 @@
     "typescript": "^4.5.5"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "eslint": "^8.9.0",
+    "eslint-plugin-react": "^7.28.0",
     "webpack": "^5.67.0",
     "webpack-cli": "^4.9.2"
   }
