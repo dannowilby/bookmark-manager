@@ -30550,6 +30550,7 @@ var default_bookmark = {
     id: "0",
     title: "Loading...",
 };
+;
 var App = function () {
     var _a = (0, react_1.useState)(default_bookmark), state = _a[0], setState = _a[1];
     var refresh = refresh_helper(setState);

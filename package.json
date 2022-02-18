@@ -4,24 +4,28 @@
   "description": "",
   "private": true,
   "scripts": {
-    "build": "webpack",
-    "new_build": "tsc --init"
+    "test": "jest --coverage",
+    "build": "webpack --watch"
   },
   "author": "Daniel Y. Wilby",
   "license": "ISC",
   "dependencies": {
     "@types/chrome": "0.0.140",
+    "@types/jest": "^27.4.0",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
     "@types/react-redux": "^7.1.22",
     "css-loader": "^5.2.7",
+    "jest": "^27.5.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
     "sass": "^1.49.0",
     "sass-loader": "^11.1.1",
     "style-loader": "^2.0.0",
+    "ts-jest": "^27.1.3",
     "ts-loader": "^9.2.6",
+    "ts-node": "^10.5.0",
     "typescript": "^4.5.5"
   },
   "devDependencies": {
